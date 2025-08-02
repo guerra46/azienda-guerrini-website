@@ -152,19 +152,6 @@ a {
     flex-wrap: wrap;
 }
 
-/* ===== ULTIMA CORREZIONE: Stili per il pulsante secondario ===== */
-.cta-button.secondary-cta {
-    background-color: transparent;
-    border: 2px solid var(--accent-color); /* Bordo VERDE */
-    color: var(--accent-color);             /* Testo VERDE */
-}
-
-.cta-button.secondary-cta:hover {
-    background-color: var(--accent-color); /* Sfondo VERDE al passaggio del mouse */
-    color: var(--white-color);             /* Testo BIANCO al passaggio del mouse */
-}
-/* ============================================================== */
-
 /* ======================= SEZIONI GENERICHE ======================= */
 .content-section {
     padding: 60px 0;
