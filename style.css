@@ -99,14 +99,14 @@ a {
 
 /* ======================= HERO SECTION ======================= */
 .hero {
-    height: 90vh;
+    min-height: 90vh; /* Usiamo min-height per maggiore flessibilità */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080.png?text=Campo+Bresciano') no-repeat center center/cover;
     color: var(--white-color);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 40px 20px; /* Aggiunto padding verticale per sicurezza */
 }
 
 .hero-content {
@@ -117,6 +117,7 @@ a {
     font-size: 3rem;
     color: var(--white-color);
     margin-bottom: 1rem;
+    line-height: 1.2; /* Migliora l'interlinea per titoli lunghi */
 }
 
 .hero-subtitle {
@@ -125,6 +126,7 @@ a {
 }
 
 .cta-button {
+    display: inline-block; /* Assicura un comportamento corretto del padding */
     background: var(--accent-color);
     color: var(--white-color);
     padding: 15px 30px;
@@ -170,6 +172,7 @@ a {
 /* ======================= PRODOTTI ======================= */
 .product-grid {
     display: grid;
+    /* Questa griglia è già responsive grazie a auto-fit e minmax. Ottimo lavoro! */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
@@ -304,12 +307,12 @@ a {
     font-family: var(--font-secondary);
     font-size: 1.5rem;
     font-weight: 700;
-    flex-basis: 100%;
+    flex-basis: 100%; /* Occupa tutta la larghezza per stare sopra */
 }
 
 .footer-contacts, .footer-social, .footer-legal {
-    flex: 1;
-    min-width: 250px;
+    flex: 1; /* Ciascuna colonna prova ad occupare lo stesso spazio */
+    min-width: 250px; /* Non diventano più piccole di 250px, poi vanno a capo */
 }
 
 .footer-legal {
@@ -320,30 +323,65 @@ a {
 }
 
 /* ======================= RESPONSIVE DESIGN ======================= */
+/* Stili per tablet e cellulari (fino a 768px) */
 @media (max-width: 768px) {
+    /* --- Header e Navigazione --- */
     .header .container {
         flex-direction: column;
         gap: 0.5rem;
     }
 
     .main-nav ul {
-        gap: 1rem;
+        gap: 1.5rem;
         padding: 0.5rem 0;
+        flex-wrap: wrap; /* Permette ai link di andare a capo */
+        justify-content: center; /* Centra i link se vanno a capo */
     }
 
+    /* --- Hero Section --- */
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem; /* Riduciamo la dimensione del titolo */
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem; /* Riduciamo anche il sottotitolo */
+    }
+    
+    .cta-button {
+        padding: 12px 18px; /* Meno padding laterale */
+        font-size: 1rem;
+        white-space: normal; /* **LA SOLUZIONE CHIAVE:** permette al testo di andare a capo */
+        text-align: center; /* Centra il testo se va a capo */
+    }
+
+    /* --- Sezioni Generali --- */
+    h2.section-title {
+        font-size: 2rem; /* Riduciamo i titoli di sezione */
     }
 
     .section-container {
-        flex-direction: column;
+        flex-direction: column; /* Le sezioni a 2 colonne diventano a 1 */
+        gap: 2rem;
     }
     
+    /* Regola specifica per mettere l'immagine sopra il testo su mobile */
     #chi-siamo .section-container {
-        flex-direction: column-reverse; /* Immagine sopra al testo */
+        flex-direction: column-reverse;
     }
 
+    /* --- Form --- */
     .form-group {
-        flex-basis: 100%;
+        flex-basis: 100%; /* I campi del form vanno uno sotto l'altro */
+    }
+}
+
+/* Stili per cellulari molto piccoli (fino a 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem; /* Riduciamo ancora un po' il titolo principale */
+    }
+    
+    .main-nav ul {
+        gap: 1rem; /* Meno spazio tra i link del menu */
     }
 }
