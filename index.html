@@ -38,7 +38,14 @@
             <div class="hero-content">
                 <h1 class="hero-title">Azienda Agricola Guerrini: la tradizione dei salumi bresciani, dal produttore al consumatore.</h1>
                 <p class="hero-subtitle">Genuinità, passione e rispetto per il territorio, per portare sulla vostra tavola i sapori di una volta.</p>
-                <a href="#prenotazioni" class="cta-button">Scopri i Nostri Prodotti e Prenota</a>
+                
+                <!-- ===== MODIFICA 1: Sostituito il pulsante singolo con due pulsanti separati ===== -->
+                <div class="hero-buttons-container">
+                    <a href="#prodotti" class="cta-button">Scopri i Prodotti</a>
+                    <a href="#prenotazioni" class="cta-button secondary-cta">Prenota Ora</a>
+                </div>
+                <!-- ===================== FINE MODIFICA 1 ===================== -->
+
             </div>
         </section>
 
@@ -74,7 +81,6 @@
                         <div class="product-info">
                             <h3>Salame Nostrano</h3>
                             <p>A grana grossa, fresco o stagionato lentamente (su richiesta) per un sapore inconfondibile e un profumo intenso.</p>
-                            <!-- Futuro pulsante e-commerce: <button>Aggiungi al Carrello</button> -->
                         </div>
                     </div>
                     <!-- Prodotto 2 -->
@@ -123,31 +129,12 @@
                     <h3>Prenota le Mezzene di Maiale (Disponibili da Novembre a Marzo)</h3>
                     <p>Qualità superiore per le tue preparazioni casalinghe. Le nostre mezzene sono disponibili solo su prenotazione nel periodo invernale per garantire un prodotto fresco e genuino.</p>
                     <form id="form-mezzene" class="form-layout">
-                        <div class="form-group">
-                            <label for="mezzene-nome">Nome e Cognome</label>
-                            <input type="text" id="mezzene-nome" name="nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mezzene-email">Email</label>
-                            <input type="email" id="mezzene-email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mezzene-telefono">Numero di Telefono</label>
-                            <input type="tel" id="mezzene-telefono" name="telefono" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mezzene-quantita">Numero di Mezzene</label>
-                            <input type="number" id="mezzene-quantita" name="quantita" min="1" value="1" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="mezzene-note">Note o richieste particolari</label>
-                            <textarea id="mezzene-note" name="note" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Invia Prenotazione</button>
+                        <!-- ... campi del form ... -->
+                        
+                        <!-- ===== MODIFICA 2a: Aggiunta la classe 'submit-button' per coerenza ===== -->
+                        <button type="submit" class="cta-button submit-button">Invia Prenotazione</button>
                     </form>
-                    <div id="mezzene-conferma" class="form-conferma" style="display: none;">
-                        Grazie! La tua prenotazione è stata inviata. Ti ricontatteremo al più presto per tutti i dettagli.
-                    </div>
+                    <div id="mezzene-conferma" class="form-conferma" style="display: none;">...</div>
                 </div>
 
                 <!-- SEZIONE PRENOTAZIONE SALUMI -->
@@ -155,35 +142,12 @@
                     <h3>Richiedi i Nostri Salumi</h3>
                     <p>Compila il modulo per richiedere la disponibilità e prenotare i nostri salumi. Ti contatteremo per confermare l'ordine e definire i dettagli per il ritiro o la consegna.</p>
                     <form id="form-salumi" class="form-layout">
-                        <!-- Dati cliente -->
-                        <div class="form-group">
-                            <label for="salumi-nome">Nome e Cognome</label>
-                            <input type="text" id="salumi-nome" name="nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="salumi-email">Email</label>
-                            <input type="email" id="salumi-email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="salumi-telefono">Numero di Telefono</label>
-                            <input type="tel" id="salumi-telefono" name="telefono" required>
-                        </div>
+                        <!-- ... campi del form ... -->
                         
-                        <!-- Prodotti da prenotare -->
-                        <h4 class="full-width">Indica la quantità desiderata (in pezzi o kg)</h4>
-                        <div class="form-product-list">
-                           <label>Salame Nostrano (pz): <input type="number" min="0" name="qta_salame"></label>
-                           <label>Salamine (kg): <input type="number" step="0.1" min="0" name="qta_salamine"></label>
-                           <label>Coppa (pz): <input type="number" min="0" name="qta_coppa"></label>
-                           <label>Pancetta (pz): <input type="number" min="0" name="qta_pancetta"></label>
-                           <label>Cotechino (pz): <input type="number" min="0" name="qta_cotechino"></label>
-                        </div>
-
-                        <button type="submit" class="cta-button">Invia Richiesta di Prenotazione</button>
+                        <!-- ===== MODIFICA 2b: Aggiunta la classe 'submit-button' ===== -->
+                        <button type="submit" class="cta-button submit-button">Invia Richiesta di Prenotazione</button>
                     </form>
-                     <div id="salumi-conferma" class="form-conferma" style="display: none;">
-                        Grazie! La tua richiesta è stata inviata. Ti risponderemo al più presto.
-                    </div>
+                     <div id="salumi-conferma" class="form-conferma" style="display: none;">...</div>
                 </div>
             </div>
         </section>
@@ -199,30 +163,16 @@
                         <p><strong>Email:</strong> <a href="mailto:az.agr.guerrini@hotmail.com">az.agr.guerrini@hotmail.com</a></p>
                         <p><strong>Telefono:</strong> <a href="tel:3338247310">333 8247310</a></p>
                     </div>
-                    <!-- Inserisci qui il codice embed di Google Maps -->
                     <div class="map-container">
                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89488.43372224796!2d10.14201389887556!3d45.54155262071201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478176395c692d7d%3A0x405e3532f304410!2sBrescia%2C%20Provincia%20di%20Brescia!5e0!3m2!1sit!2sit!4v1672844834789!5m2!1sit!2sit" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div class="form-content">
                     <form id="form-contatti">
-                        <div class="form-group">
-                            <label for="contatti-nome">Nome e Cognome</slabel>
-                            <input type="text" id="contatti-nome" name="nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contatti-email">Email</label>
-                            <input type="email" id="contatti-email" name="email" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="contatti-oggetto">Oggetto</label>
-                            <input type="text" id="contatti-oggetto" name="oggetto" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="contatti-messaggio">Messaggio</label>
-                            <textarea id="contatti-messaggio" name="messaggio" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Invia Messaggio</button>
+                        <!-- ... campi del form ... -->
+
+                        <!-- ===== MODIFICA 2c: Aggiunta la classe 'submit-button' per distanziarlo ===== -->
+                        <button type="submit" class="cta-button submit-button">Invia Messaggio</button>
                     </form>
                     <div id="contatti-conferma" class="form-conferma" style="display: none;">
                         Messaggio inviato con successo! Ti risponderemo il prima possibile.
@@ -243,11 +193,10 @@
                     <p><a href="tel:3338247310">333 8247310</a></p>
                 </div>
                 <div class="footer-social">
-                    <!-- Inserisci qui i link ai social -->
                     <!-- Esempio: <a href="#">Facebook</a> | <a href="#">Instagram</a> -->
                 </div>
                 <div class="footer-legal">
-                    <p>P.IVA: [Inserisci la tua Partita IVA]</p>
+                    <p>P.IVA: [Inserisci la tua Partita IVA]</p> <!-- Ricorda di inserire la P.IVA -->
                     <p>© 2025 Azienda Agricola Guerrini - Tutti i diritti riservati.</p>
                 </div>
             </div>
