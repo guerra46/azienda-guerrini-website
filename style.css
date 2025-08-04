@@ -98,6 +98,13 @@ a { color: var(--accent-color); text-decoration: none; }
 .footer-contacts, .footer-social, .footer-legal { flex: 1; min-width: 250px; }
 .footer-legal { flex-basis: 100%; margin-top: 2rem; font-size: 0.9rem; opacity: 0.8; }
 
+/* === MODIFICA: Aggiunto stile per i link legali nel footer === */
+.footer-links {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+/* ===================== FINE MODIFICA ===================== */
+
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 768px) {
     .header .container { flex-direction: column; gap: 0.5rem; }
