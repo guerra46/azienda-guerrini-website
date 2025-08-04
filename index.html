@@ -85,9 +85,11 @@
         <section id="prenotazioni" class="content-section">
             <div class="container">
                 <h2 class="section-title">Prenota le Nostre Specialità</h2>
-                <div id="sezione-mezzene-stagionale" style="display: none;">
-                    <h3>Prenota le Mezzene di Maiale (Disponibili da Novembre a Marzo)</h3>
-                    <p>Qualità superiore per le tue preparazioni casalinghe. Le nostre mezzene sono disponibili solo su prenotazione nel periodo invernale per garantire un prodotto fresco e genuino.</p>
+
+                <!-- === MODIFICA: Resa la sezione delle mezzene sempre visibile e aggiornati i testi === -->
+                <div id="sezione-mezzene-stagionale">
+                    <h3>Prenota le Mezzene di Maiale</h3>
+                    <p>Qualità superiore per le tue preparazioni casalinghe. Le nostre mezzene sono disponibili su prenotazione tutto l'anno per garantire un prodotto sempre fresco e genuino.</p>
                     <form id="form-mezzene" class="form-layout">
                         <div class="form-group"><label for="mezzene-nome">Nome e Cognome</label><input type="text" id="mezzene-nome" name="nome" required></div>
                         <div class="form-group"><label for="mezzene-email">Email</label><input type="email" id="mezzene-email" name="email" required></div>
@@ -98,6 +100,8 @@
                     </form>
                     <div id="mezzene-conferma" class="form-conferma" style="display: none;">Grazie! La tua prenotazione è stata inviata. Ti ricontatteremo al più presto per tutti i dettagli.</div>
                 </div>
+                <!-- ===================== FINE MODIFICA ===================== -->
+
                 <div class="prenotazione-salumi">
                     <h3>Richiedi i Nostri Salumi</h3>
                     <p>Compila il modulo per richiedere la disponibilità e prenotare i nostri salumi. Ti contatteremo per confermare l'ordine e definire i dettagli per il ritiro o la consegna.</p>
@@ -131,13 +135,9 @@
                         <p><strong>Email:</strong> <a href="mailto:az.agr.guerrini@hotmail.com">az.agr.guerrini@hotmail.com</a></p>
                         <p><strong>Telefono:</strong> <a href="tel:3338247310">333 8247310</a></p>
                     </div>
-                    
-                    <!-- === MODIFICA: Sostituito il vecchio iframe con quello nuovo === -->
                     <div class="map-container">
                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1177.0529373643246!2d10.162755496373672!3d45.439187473719535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1754334364239!5m2!1sit!2sit" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <!-- ===================== FINE MODIFICA ===================== -->
-
                 </div>
                 <div class="form-content">
                     <form id="form-contatti">

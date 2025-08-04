@@ -1,7 +1,11 @@
 // Attende che il contenuto della pagina sia completamente caricato
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- LOGICA PER LA SEZIONE STAGIONALE DELLE MEZZENE ---
+    /* --- LOGICA PER LA SEZIONE STAGIONALE DELLE MEZZENE (DISATTIVATA) ---
+       Questo blocco di codice è stato commentato per rendere la sezione
+       delle mezzene visibile tutto l'anno, come da richiesta.
+       La visibilità ora è gestita direttamente dall'HTML.
+    
     const sezioneMezzene = document.getElementById('sezione-mezzene-stagionale');
     
     // Controlla se l'elemento esiste prima di procedere
@@ -15,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
             sezioneMezzene.style.display = 'block';
         }
     }
+    */
+
 
     // --- GESTIONE INVIO MODULI ---
     // Funzione generica per gestire l'invio e mostrare la conferma
