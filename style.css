@@ -115,22 +115,42 @@ a { color: var(--accent-color); text-decoration: none; }
 /* ======================= FOOTER ======================= */
 .footer { background: var(--primary-color); color: var(--white-color); padding: 40px 0; }
 .footer a { color: var(--white-color); }
+
 .footer-content { 
     display: flex; 
     justify-content: center; 
     align-items: center; 
     flex-wrap: wrap; 
-    gap: 2rem; 
+    gap: 2rem;
 }
-.footer-logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; flex-basis: 100%; text-align: center; }
-.footer-contacts, .footer-social, .footer-legal { 
-    flex: 1; 
-    min-width: 250px; 
-    /* MODIFICA: Aggiunto l'allineamento al centro per il testo interno */
+
+.footer-logo { 
+    font-family: var(--font-secondary); 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    flex-basis: 100%; 
     text-align: center; 
 }
-.footer-legal { flex-basis: 100%; margin-top: 2rem; font-size: 0.9rem; opacity: 0.8; }
-.footer-links { margin-top: 1rem; margin-bottom: 1rem; }
+
+/* === MODIFICA: Rimossa la proprietà "flex: 1" che causava l'espansione === */
+.footer-contacts, .footer-social {
+    min-width: 250px; 
+    text-align: center;
+}
+
+.footer-legal { 
+    flex-basis: 100%; 
+    margin-top: 2rem; 
+    font-size: 0.9rem; 
+    opacity: 0.8;
+    text-align: center;
+}
+/* ===================== FINE MODIFICA ===================== */
+
+.footer-links { 
+    margin-top: 1rem; 
+    margin-bottom: 1rem; 
+}
 
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 992px) {
