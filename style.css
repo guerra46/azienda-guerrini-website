@@ -154,9 +154,11 @@ a { color: var(--accent-color); text-decoration: none; }
     min-width: 250px;
 }
 
-/* Stile per il link social */
+/* MODIFICA: Stile per il link social con icona */
 .footer-social a {
-    display: inline-block;
+    display: inline-flex; /* Usa flex per allineare icona e testo */
+    align-items: center;  /* Allinea verticalmente */
+    gap: 0.5rem;          /* Spazio tra icona e testo */
     padding: 8px 16px;
     border: 1px solid var(--white-color);
     border-radius: 5px;
@@ -167,6 +169,7 @@ a { color: var(--accent-color); text-decoration: none; }
     background-color: var(--white-color);
     color: var(--primary-color);
 }
+
 
 .footer-legal { 
     flex-basis: 100%; 
