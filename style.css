@@ -139,7 +139,6 @@ a { color: var(--accent-color); text-decoration: none; }
     flex-basis: 100%; 
 }
 
-/* Contenitore intermedio per contatti e social */
 .footer-middle-section {
     display: flex;
     justify-content: center;
@@ -147,18 +146,17 @@ a { color: var(--accent-color); text-decoration: none; }
     flex-wrap: wrap;
     gap: 2rem;
     width: 100%;
-    margin: 1rem 0; /* Aggiunge spazio verticale */
+    margin: 1rem 0;
 }
 
 .footer-contacts, .footer-social {
     min-width: 250px;
 }
 
-/* MODIFICA: Stile per il link social con icona */
 .footer-social a {
-    display: inline-flex; /* Usa flex per allineare icona e testo */
-    align-items: center;  /* Allinea verticalmente */
-    gap: 0.5rem;          /* Spazio tra icona e testo */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 8px 16px;
     border: 1px solid var(--white-color);
     border-radius: 5px;
@@ -170,7 +168,6 @@ a { color: var(--accent-color); text-decoration: none; }
     color: var(--primary-color);
 }
 
-
 .footer-legal { 
     flex-basis: 100%; 
     margin-top: 1.5rem; 
@@ -181,7 +178,6 @@ a { color: var(--accent-color); text-decoration: none; }
 .footer-links { 
     margin: 1rem 0; 
 }
-
 
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 992px) {
