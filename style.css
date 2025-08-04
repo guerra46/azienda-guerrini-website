@@ -113,15 +113,23 @@ a { color: var(--accent-color); text-decoration: none; }
 .map-container { margin-top: 2rem; border-radius: 8px; overflow: hidden; }
 
 /* ======================= FOOTER ======================= */
-.footer { background: var(--primary-color); color: var(--white-color); padding: 40px 0; }
-.footer a { color: var(--white-color); }
+.footer { 
+    background: var(--primary-color); 
+    color: var(--white-color); 
+    padding: 40px 0; 
+}
+
+.footer a { 
+    color: var(--white-color); 
+}
 
 .footer-content { 
     display: flex; 
     justify-content: center; 
     align-items: center; 
     flex-wrap: wrap; 
-    gap: 2rem;
+    gap: 1rem;
+    text-align: center;
 }
 
 .footer-logo { 
@@ -129,28 +137,48 @@ a { color: var(--accent-color); text-decoration: none; }
     font-size: 1.5rem; 
     font-weight: 700; 
     flex-basis: 100%; 
-    text-align: center; 
 }
 
-/* === MODIFICA: Rimossa la proprietà "flex: 1" che causava l'espansione === */
+/* Contenitore intermedio per contatti e social */
+.footer-middle-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    margin: 1rem 0; /* Aggiunge spazio verticale */
+}
+
 .footer-contacts, .footer-social {
-    min-width: 250px; 
-    text-align: center;
+    min-width: 250px;
+}
+
+/* Stile per il link social */
+.footer-social a {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--white-color);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.footer-social a:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
 }
 
 .footer-legal { 
     flex-basis: 100%; 
-    margin-top: 2rem; 
+    margin-top: 1.5rem; 
     font-size: 0.9rem; 
     opacity: 0.8;
-    text-align: center;
 }
-/* ===================== FINE MODIFICA ===================== */
 
 .footer-links { 
-    margin-top: 1rem; 
-    margin-bottom: 1rem; 
+    margin: 1rem 0; 
 }
+
 
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 992px) {
