@@ -58,17 +58,12 @@ a {
 
 /* ======================= HEADER ======================= */
 .header {
-    /* MODIFICA: Aggiunto sfondo con immagine e overlay scuro */
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('path/alla/tua/immagine.jpg') no-repeat center center/cover;
-    
+    background: var(--white-color);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
-
-    /* MODIFICA: Testo bianco per leggibilità */
-    color: var(--white-color); 
 }
 
 .header .container {
@@ -83,8 +78,7 @@ a {
     font-family: var(--font-secondary);
     font-size: 1.5rem;
     font-weight: 700;
-    /* MODIFICA: Colore bianco per leggibilità */
-    color: var(--white-color);
+    color: var(--primary-color);
 }
 
 .main-nav ul {
@@ -94,15 +88,13 @@ a {
 }
 
 .main-nav a {
-    /* MODIFICA: Colore bianco per leggibilità */
-    color: var(--white-color);
+    color: var(--text-color);
     font-weight: 600;
-    transition: opacity 0.3s;
+    transition: color 0.3s;
 }
 
 .main-nav a:hover {
-    /* MODIFICA: Effetto hover più adatto per sfondi con immagini */
-    opacity: 0.8;
+    color: var(--accent-color);
 }
 
 /* ======================= HERO SECTION ======================= */
