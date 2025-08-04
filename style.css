@@ -21,7 +21,7 @@ a { color: var(--accent-color); text-decoration: none; }
 
 /* ======================= HEADER ======================= */
 .header {
-    background: var(--white-color); /* Lo sfondo dell'header rimane bianco */
+    background: var(--white-color);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
@@ -38,9 +38,7 @@ a { color: var(--accent-color); text-decoration: none; }
 /* ======================= HERO SECTION ======================= */
 .hero {
     min-height: 90vh;
-    /* MODIFICA: Qui inserisci il percorso della tua immagine personale! */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/campi2.jpg') no-repeat center center/cover;
-    
     color: var(--white-color);
     display: flex;
     justify-content: center;
@@ -97,13 +95,7 @@ a { color: var(--accent-color); text-decoration: none; }
 .footer-logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; flex-basis: 100%; }
 .footer-contacts, .footer-social, .footer-legal { flex: 1; min-width: 250px; }
 .footer-legal { flex-basis: 100%; margin-top: 2rem; font-size: 0.9rem; opacity: 0.8; }
-
-/* === MODIFICA: Aggiunto stile per i link legali nel footer === */
-.footer-links {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-/* ===================== FINE MODIFICA ===================== */
+.footer-links { margin-top: 1rem; margin-bottom: 1rem; }
 
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 768px) {
@@ -117,6 +109,12 @@ a { color: var(--accent-color); text-decoration: none; }
     .section-container { flex-direction: column; gap: 2rem; }
     #chi-siamo .section-container { flex-direction: column-reverse; }
     .form-group { flex-basis: 100%; }
+
+    /* === MODIFICA: Centra gli elementi del footer su mobile === */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 480px) {
