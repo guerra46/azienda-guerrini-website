@@ -16,7 +16,7 @@ body { font-family: var(--font-primary); color: var(--text-color); line-height: 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 h1, h2, h3 { font-family: var(--font-secondary); color: var(--primary-color); margin-bottom: 1rem; }
 h2.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; }
-p.section-subtitle { text-align: center; max-width: 800px; /* Aumentato per adattarsi al nuovo sottotitolo */ margin: 0 auto 3rem auto; font-size: 1.1rem; }
+p.section-subtitle { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem; }
 a { color: var(--accent-color); text-decoration: none; }
 
 /* ======================= HEADER ======================= */
@@ -78,13 +78,11 @@ a { color: var(--accent-color); text-decoration: none; }
 .form-group label, .form-product-list label { margin-bottom: 0.5rem; font-weight: 600; color: var(--secondary-color); }
 .form-group input, .form-group textarea { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; font-family: var(--font-primary); }
 .submit-button { margin-top: 1.5rem; width: 100%; }
-/* Rimuovo la regola .prenotazione-salumi perché ora è gestita da .prenotazione-box */
 .form-product-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; flex-basis: 100%; }
 .form-product-list label { display: flex; align-items: center; gap: 0.5rem; }
 .form-product-list input { width: 80px; padding: 8px; border: 1px solid #ccc; border-radius: 5px; }
 .form-conferma { background-color: #e8f5e9; color: #2e7d32; padding: 1rem; border-radius: 5px; margin-top: 1rem; text-align: center; font-weight: 600; }
 
-/* === MODIFICA: Nuovo layout per la sezione prenotazioni === */
 .prenotazioni-container {
     display: flex;
     gap: 2rem;
@@ -109,7 +107,6 @@ a { color: var(--accent-color); text-decoration: none; }
 .prenotazione-box p {
     margin-bottom: 1.5rem;
 }
-/* ===================== FINE MODIFICA ===================== */
 
 /* ======================= CONTATTI E MAPPA ======================= */
 .contact-info p { margin-bottom: 0.5rem; font-size: 1.1rem; }
@@ -120,21 +117,23 @@ a { color: var(--accent-color); text-decoration: none; }
 .footer a { color: var(--white-color); }
 .footer-content { 
     display: flex; 
-    /* MODIFICA: Centra gli elementi invece di distribuirli ai lati */
     justify-content: center; 
     align-items: center; 
     flex-wrap: wrap; 
     gap: 2rem; 
+}
+.footer-logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; flex-basis: 100%; text-align: center; }
+.footer-contacts, .footer-social, .footer-legal { 
+    flex: 1; 
+    min-width: 250px; 
+    /* MODIFICA: Aggiunto l'allineamento al centro per il testo interno */
     text-align: center; 
 }
-.footer-logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; flex-basis: 100%; }
-.footer-contacts, .footer-social, .footer-legal { flex: 1; min-width: 250px; }
 .footer-legal { flex-basis: 100%; margin-top: 2rem; font-size: 0.9rem; opacity: 0.8; }
 .footer-links { margin-top: 1rem; margin-bottom: 1rem; }
 
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 992px) {
-    /* === MODIFICA: Layout scorrevole per le prenotazioni === */
     .prenotazioni-container {
         display: grid;
         grid-auto-flow: column;
@@ -149,10 +148,8 @@ a { color: var(--accent-color); text-decoration: none; }
         scroll-snap-align: center;
     }
 
-    /* Stile per nascondere la scrollbar ma mantenerla funzionale */
     .prenotazioni-container::-webkit-scrollbar { display: none; }
     .prenotazioni-container { -ms-overflow-style: none; scrollbar-width: none; }
-    /* ===================== FINE MODIFICA ===================== */
 }
 
 @media (max-width: 768px) {
@@ -166,8 +163,6 @@ a { color: var(--accent-color); text-decoration: none; }
     .section-container { flex-direction: column; gap: 2rem; }
     #chi-siamo .section-container { flex-direction: column-reverse; }
     .form-group { flex-basis: 100%; }
-    
-    /* MODIFICA: Non serve più la regola che forza il flex-direction nel footer su mobile */
 }
 
 @media (max-width: 480px) {
