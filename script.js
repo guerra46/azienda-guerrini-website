@@ -22,8 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
     */
 
 
-    // --- GESTIONE INVIO MODULI ---
-    // Funzione generica per gestire l'invio e mostrare la conferma
+    /* --- GESTIONE INVIO MODULI (DISATTIVATA) ---
+       Questa funzione è stata disattivata per permettere a FormSubmit di gestire
+       l'invio dei moduli. Il comportamento standard del browser (attivato 
+       dall'attributo "action" nel form) ora prenderà il sopravvento.
+       
     function handleFormSubmit(formId, confermaId) {
         const form = document.getElementById(formId);
         const confermaMessaggio = document.getElementById(confermaId);
@@ -48,5 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
     handleFormSubmit('form-mezzene', 'mezzene-conferma');
     handleFormSubmit('form-salumi', 'salumi-conferma');
     handleFormSubmit('form-contatti', 'contatti-conferma');
+    */
 
 });
