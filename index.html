@@ -138,11 +138,8 @@
                         <p><strong>Telefono:</strong> <a href="tel:3338247310">333 8247310</a></p>
                     </div>
                     <div class="map-container">
-                       <!-- MODIFICA: Iframe di Google Maps preparato per Klaro! -->
-                       <iframe
-                           type="text/plain"
-                           data-name="google-maps"
-                           data-src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1177.0529373643246!2d10.162755496373672!3d45.439187473719535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1754334364239!5m2!1sit!2sit" 
+                       <!-- MODIFICA: Cambiato src in data-src per il controllo del banner -->
+                       <iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1177.0529373643246!2d10.162755496373672!3d45.439187473719535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1754334364239!5m2!1sit!2sit" 
                            width="100%" 
                            height="300" 
                            style="border:0;" 
@@ -212,62 +209,18 @@
 
     <!-- Link al file JavaScript -->
     <script src="script.js"></script>
+    
+    <!-- MODIFICA: Aggiunto link al nuovo script del banner -->
+    <script src="cookie-banner.js"></script>
 
-    <!-- INIZIA L'IMPLEMENTAZIONE DI KLARO! -->
-    <script type="application/javascript">
-    const klaroConfig = {
-        elementID: 'klaro',
-        storageMethod: 'cookie',
-        cookieName: 'klaro',
-        lang: 'it',
-        default: false,
-        mustConsent: true,
-        acceptAll: true,
-        hideDecline: false,
-        translations: {
-            it: {
-                consentModal: {
-                    title: 'Informazioni che raccogliamo',
-                    description: 'Qui puoi visualizzare e personalizzare le informazioni che raccogliamo su di te. Per saperne di più, leggi la nostra {privacyPolicy}.',
-                    privacyPolicy: {
-                        name: 'informativa sulla privacy',
-                        href: 'privacy.html',
-                    },
-                },
-                consentNotice: {
-                    description: 'Utilizziamo cookie di terze parti per far funzionare correttamente la mappa e migliorare la tua esperienza. Premi "Accetta" per dare il consenso.',
-                    learnMore: 'Personalizza',
-                },
-                ok: 'OK',
-                accept: 'Accetta',
-                acceptAll: 'Accetta tutti',
-                decline: 'Rifiuta',
-                close: 'Chiudi',
-                purposes: {
-                    necessary: 'Essenziali',
-                    maps: 'Mappe Interattive',
-                },
-            },
-        },
-        services: [
-            {
-                name: 'google-maps',
-                title: 'Google Maps',
-                purposes: ['maps'],
-                description: 'Servizio per visualizzare mappe interattive nella pagina dei contatti. Se accetti, verranno caricati i cookie di Google.',
-                required: false,
-                optOut: false,
-            },
-        ],
-    };
-    </script>
-    <script
-        defer
-        type="application/javascript"
-        src="https://cdn.jsdelivr.net/npm/klaro@0.7.20/dist/klaro.js"
-        data-config="klaroConfig"
-    ></script>
-    <!-- FINE IMPLEMENTAZIONE KLARO! -->
+    <!-- MODIFICA: Aggiunto il codice HTML per il banner -->
+    <div id="cookie-banner">
+        <p>
+            Utilizziamo cookie di terze parti per il funzionamento della mappa. Cliccando "Accetto", acconsenti al loro utilizzo. Per saperne di più, leggi la nostra 
+            <a href="cookie.html" target="_blank">Cookie Policy</a>.
+        </p>
+        <button id="cookie-accept-btn">Accetto</button>
+    </div>
 
 </body>
 </html>
