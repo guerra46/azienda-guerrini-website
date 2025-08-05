@@ -1,0 +1,6 @@
+# Consentire a tutti i robot di scansionare l'intero sito
+User-agent: *
+Allow: /
+
+# Indicare la posizione della sitemap
+Sitemap: https://www.aziendagricolaguerrini.it/sitemap.xml
