@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Pagina Principale (Homepage) -->
+  <url>
+    <loc>https://www.aziendagricolaguerrini.it/</loc>
+    <lastmod>2023-10-27</lastmod> <!-- Cambia questa data con la data dell'ultimo aggiornamento -->
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Pagina Termini e Condizioni -->
+  <url>
+    <loc>https://www.aziendagricolaguerrini.it/termini.html</loc>
+    <lastmod>2023-10-27</lastmod>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Pagina Privacy Policy -->
+  <url>
+    <loc>https://www.aziendagricolaguerrini.it/privacy.html</loc>
+    <lastmod>2023-10-27</lastmod>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Pagina Cookie Policy -->
+  <url>
+    <loc>https://www.aziendagricolaguerrini.it/cookie.html</loc>
+    <lastmod>2023-10-27</lastmod>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>
