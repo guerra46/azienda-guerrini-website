@@ -17,6 +17,17 @@
     
     <!-- Link al foglio di stile CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8LV9YVCWNT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8LV9YVCWNT');
+    </script>
+
 </head>
 <body>
 
@@ -138,7 +149,6 @@
                         <p><strong>Telefono:</strong> <a href="tel:3338247310">333 8247310</a></p>
                     </div>
                     <div class="map-container">
-                       <!-- MODIFICA: Cambiato src in data-src per il controllo del banner -->
                        <iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1177.0529373643246!2d10.162755496373672!3d45.439187473719535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1754334364239!5m2!1sit!2sit" 
                            width="100%" 
                            height="300" 
@@ -209,11 +219,9 @@
 
     <!-- Link al file JavaScript -->
     <script src="script.js"></script>
-    
-    <!-- MODIFICA: Aggiunto link al nuovo script del banner -->
     <script src="cookie-banner.js"></script>
 
-    <!-- MODIFICA: Aggiunto il codice HTML per il banner -->
+    <!-- BANNER COOKIE PERSONALIZZATO -->
     <div id="cookie-banner">
         <p>
             Utilizziamo cookie di terze parti per il funzionamento della mappa. Cliccando "Accetto", acconsenti al loro utilizzo. Per saperne di più, leggi la nostra 
