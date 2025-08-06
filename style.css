@@ -83,7 +83,6 @@ a { color: var(--accent-color); text-decoration: none; }
 .form-product-list input { width: 80px; padding: 8px; border: 1px solid #ccc; border-radius: 5px; }
 .form-conferma { background-color: #e8f5e9; color: #2e7d32; padding: 1rem; border-radius: 5px; margin-top: 1rem; text-align: center; font-weight: 600; }
 
-/* MODIFICA: Nuova struttura per prenotazioni e frecce */
 .prenotazioni-wrapper {
     position: relative;
 }
@@ -100,12 +99,12 @@ a { color: var(--accent-color); text-decoration: none; }
     border-radius: 8px;
     border: 1px solid #e0e0e0;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    flex: 1 0 100%; /* Occupa il 100% dello spazio disponibile nel suo contenitore flex */
+    flex: 1 0 100%;
 }
 
 @media (min-width: 993px) {
     .prenotazione-box {
-        flex-basis: 50%; /* Su desktop, ogni box occupa il 50% */
+        flex-basis: 50%;
     }
 }
 
@@ -120,7 +119,7 @@ a { color: var(--accent-color); text-decoration: none; }
 }
 
 .scroll-arrow {
-    display: none; /* Nascoste di default su desktop */
+    display: none;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -140,12 +139,13 @@ a { color: var(--accent-color); text-decoration: none; }
     background-color: rgba(93, 64, 55, 1);
 }
 
+/* MODIFICA: Spostate le frecce fuori dal contenuto */
 .scroll-arrow.prev {
-    left: 10px;
+    left: -20px;
 }
 
 .scroll-arrow.next {
-    right: 10px;
+    right: -20px;
 }
 
 /* ======================= CONTATTI E MAPPA ======================= */
@@ -265,6 +265,14 @@ a { color: var(--accent-color); text-decoration: none; }
     .hero-title { font-size: 1.8rem; }
     .main-nav ul { gap: 1rem; }
     .cta-button { width: 100%; }
+
+    /* MODIFICA: Avvicina le frecce sui telefoni piccoli */
+    .scroll-arrow.prev {
+        left: 5px;
+    }
+    .scroll-arrow.next {
+        right: 5px;
+    }
 }
 
 /* ======================= STILE BANNER COOKIE ======================= */
