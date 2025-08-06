@@ -109,42 +109,45 @@
                 <h2 class="section-title">Prenota le Nostre Specialità</h2>
                 <p class="section-subtitle">Scegli cosa prenotare: le nostre mezzene di maiale o i salumi artigianali.</p>
                 
-                <!-- MODIFICA: Rimosso il vecchio indicatore e aggiunte le frecce dentro il container -->
-                <div class="prenotazioni-container">
-                    <div id="sezione-mezzene-stagionale" class="prenotazione-box">
-                        <h3>Prenota le Mezzene di Maiale</h3>
-                        <p>Qualità superiore per le tue preparazioni casalinghe, disponibili tutto l'anno.</p>
-                        <form id="form-mezzene" class="form-layout" action="https://formsubmit.co/az.agr.guerrini@hotmail.com" method="POST">
-                            <div class="form-group"><label for="mezzene-nome">Nome e Cognome</label><input type="text" id="mezzene-nome" name="nome" required></div>
-                            <div class="form-group"><label for="mezzene-email">Email</label><input type="email" id="mezzene-email" name="email" required></div>
-                            <div class="form-group"><label for="mezzene-telefono">Numero di Telefono</label><input type="tel" id="mezzene-telefono" name="telefono" required></div>
-                            <div class="form-group"><label for="mezzene-quantita">Numero di Mezzene</label><input type="number" id="mezzene-quantita" name="quantita" min="1" value="1" required></div>
-                            <div class="form-group full-width"><label for="mezzene-note">Note o richieste particolari</label><textarea id="mezzene-note" name="note" rows="3"></textarea></div>
-                            <button type="submit" class="cta-button submit-button">Invia Prenotazione</button>
-                        </form>
-                        <div id="mezzene-conferma" class="form-conferma" style="display: none;">Grazie! La tua prenotazione è stata inviata. Ti ricontatteremo al più presto per tutti i dettagli.</div>
+                <!-- MODIFICA: Nuova struttura con "wrapper" per separare frecce e box -->
+                <div class="prenotazioni-wrapper">
+                    <div class="prenotazioni-container">
+                        <!-- Cornice 1: Mezzene -->
+                        <div id="sezione-mezzene-stagionale" class="prenotazione-box">
+                            <h3>Prenota le Mezzene di Maiale</h3>
+                            <p>Qualità superiore per le tue preparazioni casalinghe, disponibili tutto l'anno.</p>
+                            <form id="form-mezzene" class="form-layout" action="https://formsubmit.co/az.agr.guerrini@hotmail.com" method="POST">
+                                <div class="form-group"><label for="mezzene-nome">Nome e Cognome</label><input type="text" id="mezzene-nome" name="nome" required></div>
+                                <div class="form-group"><label for="mezzene-email">Email</label><input type="email" id="mezzene-email" name="email" required></div>
+                                <div class="form-group"><label for="mezzene-telefono">Numero di Telefono</label><input type="tel" id="mezzene-telefono" name="telefono" required></div>
+                                <div class="form-group"><label for="mezzene-quantita">Numero di Mezzene</label><input type="number" id="mezzene-quantita" name="quantita" min="1" value="1" required></div>
+                                <div class="form-group full-width"><label for="mezzene-note">Note o richieste particolari</label><textarea id="mezzene-note" name="note" rows="3"></textarea></div>
+                                <button type="submit" class="cta-button submit-button">Invia Prenotazione</button>
+                            </form>
+                            <div id="mezzene-conferma" class="form-conferma" style="display: none;">Grazie! La tua prenotazione è stata inviata. Ti ricontatteremo al più presto per tutti i dettagli.</div>
+                        </div>
+                        <!-- Cornice 2: Salumi -->
+                        <div class="prenotazione-salumi prenotazione-box">
+                            <h3>Richiedi i Nostri Salumi</h3>
+                            <p>Compila il modulo per richiedere la disponibilità dei nostri salumi artigianali.</p>
+                            <form id="form-salumi" class="form-layout" action="https://formsubmit.co/az.agr.guerrini@hotmail.com" method="POST">
+                                <div class="form-group"><label for="salumi-nome">Nome e Cognome</label><input type="text" id="salumi-nome" name="nome" required></div>
+                                <div class="form-group"><label for="salumi-email">Email</label><input type="email" id="salumi-email" name="email" required></div>
+                                <div class="form-group"><label for="salumi-telefono">Numero di Telefono</label><input type="tel" id="salumi-telefono" name="telefono" required></div>
+                                <h4 class="full-width">Indica la quantità desiderata (in pezzi o kg)</h4>
+                                <div class="form-product-list">
+                                   <label>Salame Nostrano (pz): <input type="number" min="0" name="qta_salame"></label>
+                                   <label>Salamine (kg): <input type="number" step="0.1" min="0" name="qta_salamine"></label>
+                                   <label>Coppa (pz): <input type="number" min="0" name="qta_coppa"></label>
+                                   <label>Pancetta (pz): <input type="number" min="0" name="qta_pancetta"></label>
+                                   <label>Cotechino (pz): <input type="number" min="0" name="qta_cotechino"></label>
+                                </div>
+                                <button type="submit" class="cta-button submit-button">Invia Richiesta di Prenotazione</button>
+                            </form>
+                             <div id="salumi-conferma" class="form-conferma" style="display: none;">Grazie! La tua richiesta è stata inviata. Ti risponderemo al più presto.</div>
+                        </div>
                     </div>
-                    <div class="prenotazione-salumi prenotazione-box">
-                        <h3>Richiedi i Nostri Salumi</h3>
-                        <p>Compila il modulo per richiedere la disponibilità dei nostri salumi artigianali.</p>
-                        <form id="form-salumi" class="form-layout" action="https://formsubmit.co/az.agr.guerrini@hotmail.com" method="POST">
-                            <div class="form-group"><label for="salumi-nome">Nome e Cognome</label><input type="text" id="salumi-nome" name="nome" required></div>
-                            <div class="form-group"><label for="salumi-email">Email</label><input type="email" id="salumi-email" name="email" required></div>
-                            <div class="form-group"><label for="salumi-telefono">Numero di Telefono</label><input type="tel" id="salumi-telefono" name="telefono" required></div>
-                            <h4 class="full-width">Indica la quantità desiderata (in pezzi o kg)</h4>
-                            <div class="form-product-list">
-                               <label>Salame Nostrano (pz): <input type="number" min="0" name="qta_salame"></label>
-                               <label>Salamine (kg): <input type="number" step="0.1" min="0" name="qta_salamine"></label>
-                               <label>Coppa (pz): <input type="number" min="0" name="qta_coppa"></label>
-                               <label>Pancetta (pz): <input type="number" min="0" name="qta_pancetta"></label>
-                               <label>Cotechino (pz): <input type="number" min="0" name="qta_cotechino"></label>
-                            </div>
-                            <button type="submit" class="cta-button submit-button">Invia Richiesta di Prenotazione</button>
-                        </form>
-                         <div id="salumi-conferma" class="form-conferma" style="display: none;">Grazie! La tua richiesta è stata inviata. Ti risponderemo al più presto.</div>
-                    </div>
-
-                    <!-- Frecce di navigazione per lo slider -->
+                    <!-- Le frecce ora sono qui, fuori dal contenitore che scorre -->
                     <button class="scroll-arrow prev" aria-label="Precedente">&lt;</button>
                     <button class="scroll-arrow next" aria-label="Successivo">&gt;</button>
                 </div>

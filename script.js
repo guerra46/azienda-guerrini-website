@@ -54,17 +54,18 @@ document.addEventListener('DOMContentLoaded', function() {
     */
 
     
-    // --- MODIFICA: GESTIONE SCORRIMENTO PRENOTAZIONI CON FRECCE ---
-    const container = document.querySelector('.prenotazioni-container');
-    if (container) {
-        const prevBtn = container.querySelector('.scroll-arrow.prev');
-        const nextBtn = container.querySelector('.scroll-arrow.next');
+    // --- MODIFICA: GESTIONE SCORRIMENTO PRENOTAZIONI CON FRECCE (Corretto) ---
+    const wrapper = document.querySelector('.prenotazioni-wrapper');
+    if (wrapper) {
+        const container = wrapper.querySelector('.prenotazioni-container');
+        const prevBtn = wrapper.querySelector('.scroll-arrow.prev');
+        const nextBtn = wrapper.querySelector('.scroll-arrow.next');
         const box = container.querySelector('.prenotazione-box');
 
-        if (prevBtn && nextBtn && box) {
+        if (container && prevBtn && nextBtn && box) {
             
-            // Calcola di quanto scorrere (larghezza di un box + il gap tra di essi)
-            // Assumiamo che il gap sia 2rem, che corrisponde a circa 32px
+            // Calcola di quanto scorrere (larghezza di un box + il gap in pixel)
+            // Assumiamo che il gap CSS sia 2rem (circa 32px)
             const scrollAmount = box.offsetWidth + 32;
 
             nextBtn.addEventListener('click', () => {
