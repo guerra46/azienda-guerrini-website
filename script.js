@@ -53,4 +53,28 @@ document.addEventListener('DOMContentLoaded', function() {
     handleFormSubmit('form-contatti', 'contatti-conferma');
     */
 
+    
+    // --- MODIFICA: GESTIONE SCORRIMENTO PRENOTAZIONI CON FRECCE ---
+    const container = document.querySelector('.prenotazioni-container');
+    if (container) {
+        const prevBtn = container.querySelector('.scroll-arrow.prev');
+        const nextBtn = container.querySelector('.scroll-arrow.next');
+        const box = container.querySelector('.prenotazione-box');
+
+        if (prevBtn && nextBtn && box) {
+            
+            // Calcola di quanto scorrere (larghezza di un box + il gap tra di essi)
+            // Assumiamo che il gap sia 2rem, che corrisponde a circa 32px
+            const scrollAmount = box.offsetWidth + 32;
+
+            nextBtn.addEventListener('click', () => {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+        }
+    }
+
 });

@@ -87,6 +87,7 @@ a { color: var(--accent-color); text-decoration: none; }
     display: flex;
     gap: 2rem;
     align-items: stretch;
+    position: relative; /* Necessario per posizionare le frecce */
 }
 
 .prenotazione-box {
@@ -108,17 +109,35 @@ a { color: var(--accent-color); text-decoration: none; }
     margin-bottom: 1.5rem;
 }
 
-/* MODIFICA: Stile per l'indicatore di scorrimento */
-.swipe-indicator {
-    display: none; /* Nascosto di default su desktop */
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--secondary-color);
-    font-style: italic;
+/* MODIFICA: Stili per le frecce di scorrimento */
+.scroll-arrow {
+    display: none; /* Nascoste di default su desktop */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(93, 64, 55, 0.7); /* Marrone scuro semi-trasparente */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--font-secondary); /* Usa un font più carino per le frecce */
 }
 
-.swipe-indicator i {
-    margin-right: 0.5rem;
+.scroll-arrow:hover {
+    background-color: rgba(93, 64, 55, 1); /* Marrone scuro pieno */
+}
+
+.scroll-arrow.prev {
+    left: 10px;
+}
+
+.scroll-arrow.next {
+    right: 10px;
 }
 
 /* ======================= CONTATTI E MAPPA ======================= */
@@ -194,25 +213,19 @@ a { color: var(--accent-color); text-decoration: none; }
 
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 992px) {
-    /* MODIFICA: Mostra l'indicatore e migliora lo scorrimento */
-    .swipe-indicator {
-        display: block;
-    }
-
     .prenotazioni-container {
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: 80%; /* Ridotto per mostrare meglio il box successivo */
+        grid-auto-columns: 85%; /* Lasciamo un po' più di spazio */
         overflow-x: auto;
         padding-bottom: 1.5rem;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         
-        /* Aggiunge spazio ai lati */
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-left: -20px;
-        margin-right: -20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: -15px;
+        margin-right: -15px;
     }
 
     .prenotazione-box {
@@ -221,6 +234,11 @@ a { color: var(--accent-color); text-decoration: none; }
 
     .prenotazioni-container::-webkit-scrollbar { display: none; }
     .prenotazioni-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* MODIFICA: Mostra le frecce su schermi con scorrimento */
+    .scroll-arrow {
+        display: block;
+    }
 }
 
 @media (max-width: 768px) {
