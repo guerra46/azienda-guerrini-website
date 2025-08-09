@@ -7,13 +7,22 @@
     <meta name="description" content="Azienda Agricola Guerrini: produzione e vendita diretta di salumi nostrani bresciani a km 0. Scopri la tradizione e la genuinità dei nostri prodotti artigianali.">
     <meta name="keywords" content="azienda agricola brescia, salumi tipici bresciani, vendita diretta salumi, salame nostrano, coppa, pancetta, cotechino, mezzene di maiale">
     
-    <!-- Google Fonts -->
+    <!-- MODIFICA: Caricamento Ottimizzato per Google Fonts e Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Link per le icone (Font Awesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Carica i fogli di stile dei font in modo non bloccante -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
+    <!-- FINE MODIFICA -->
     
     <!-- Link al foglio di stile CSS -->
     <link rel="stylesheet" href="style.css">
@@ -158,7 +167,6 @@
         <section id="contatti" class="content-section bg-light">
             <div class="container section-container">
                 <div class="text-content">
-                    <!-- MODIFICA SEO: Titolo più specifico -->
                     <h2 class="section-title">Contattaci a Bagnolo Mella (BS)</h2>
                     <p>Per informazioni, domande o semplicemente per salutarci. Siamo qui per te.</p>
                     <div class="contact-info">
@@ -167,7 +175,6 @@
                         <p><strong>Telefono:</strong> <a href="tel:3338247310">333 8247310</a></p>
                     </div>
                     <div class="map-container">
-                       <!-- MODIFICA ACCESSIBILITÀ: Aggiunto l'attributo title -->
                        <iframe title="Mappa della posizione dell'Azienda Agricola Guerrini"
                            data-src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1177.0529373643246!2d10.162755496373672!3d45.439187473719535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1754334364239!5m2!1sit!2sit" 
                            width="100%" 
