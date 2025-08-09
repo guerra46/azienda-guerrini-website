@@ -1,15 +1,18 @@
 /* ======================= IMPOSTAZIONI GLOBALI E VARIABILI ======================= */
 :root {
     --primary-color: #5d4037;
-    --secondary-color: #8d6e63;
-    /* MODIFICA: Scurito il verde per aumentare il contrasto e l'accessibilità */
-    --accent-color: #388E3C;
-    --text-color: #333;
+    --secondary-color: #61443a;
+    /* MODIFICA: Scurito per accessibilità */
+    --accent-color: #2E7D32; 
+    /* MODIFICA: Scurito per accessibilità */
+    --text-color: #212121;
     --light-bg-color: #f5f5f5;
     --white-color: #ffffff;
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Lora', serif;
 }
+
+/* ... (tutto il resto del file rimane identico) ... */
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
