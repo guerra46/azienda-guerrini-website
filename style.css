@@ -37,7 +37,7 @@ a { color: var(--accent-color); text-decoration: none; }
 
 /* ======================= HERO SECTION ======================= */
 .hero {
-    min-height: 90vh;
+    min-height: 600px; /* MODIFICATO: Usiamo un'altezza fissa per la massima compatibilità */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/campi2.jpg') no-repeat center center/cover;
     color: var(--white-color);
     display: flex;
@@ -139,7 +139,6 @@ a { color: var(--accent-color); text-decoration: none; }
     background-color: rgba(93, 64, 55, 1);
 }
 
-/* MODIFICA: Spostate le frecce fuori dal contenuto */
 .scroll-arrow.prev {
     left: -20px;
 }
@@ -265,8 +264,7 @@ a { color: var(--accent-color); text-decoration: none; }
     .hero-title { font-size: 1.8rem; }
     .main-nav ul { gap: 1rem; }
     .cta-button { width: 100%; }
-
-    /* MODIFICA: Avvicina le frecce sui telefoni piccoli */
+    
     .scroll-arrow.prev {
         left: 5px;
     }
