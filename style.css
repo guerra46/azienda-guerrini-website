@@ -1,15 +1,51 @@
 /* ======================================================================
-   NOTA: Il CSS critico (globale, header, hero) è stato spostato
-         inline nell'HTML per ottimizzare le performance.
+   1️⃣  Root variables
    ====================================================================== */
+:root {
+  /* Colors */
+  --primary-color: #5d4037;
+  --secondary-color: #61443a;
+  --accent-color: #2E7D32;
+  --text-color: #212121;
+  --light-bg-color: #f5f5f5;
+  --white-color: #ffffff;
+
+  /* Fonts */
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Lora', serif;
+
+  /* Layout */
+  --gap-standard: 3rem;
+  --radius: .5rem;
+  --shadow-light: 0 4px 15px rgba(0,0,0,.08);
+  --shadow-medium: 0 8px 20px rgba(0,0,0,.12);
+}
 
 /* ======================================================================
-   Global Styles (non-critici)
+   2️⃣  Global reset + helpers
    ====================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; 
+  padding: 0;
+  font-family: var(--font-primary); 
+  color: var(--text-color);
+  line-height: 1.6; 
+  background: var(--white-color);
+}
+h1, h2, h3 { font-family: var(--font-secondary); color: var(--primary-color); margin-bottom: 1rem; }
 h2.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; }
 p.section-subtitle { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem; }
+a { color: var(--accent-color); text-decoration: none; }
 a:hover, a:focus-visible { color: #4CAF50; }
 
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(1px,1px,1px,1px);
+  white-space: nowrap; border: 0;
+}
 button:focus-visible, a:focus-visible, input:focus-visible,
 textarea:focus-visible, select:focus-visible { 
   outline: 3px dotted var(--accent-color); 
@@ -20,26 +56,74 @@ textarea:focus-visible, select:focus-visible {
 }
 
 /* ======================================================================
-   Layout helpers
+   3️⃣  Layout helpers
    ====================================================================== */
 .section-container { display: flex; gap: var(--gap-standard); align-items: center; }
 .text-content, .image-content, .form-content { flex: 1; }
 
 /* ======================================================================
-   CTA button
+   4️⃣  Header
    ====================================================================== */
+.header {
+  background: var(--white-color);
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+  position: sticky; top: 0; z-index: 1000; padding: 1rem 0;
+}
+.header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+.main-nav ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+.main-nav a { color: var(--text-color); font-weight: 600; transition: color .3s; }
+.main-nav a:hover { color: var(--accent-color); }
+
+/* ======================================================================
+   5️⃣  Hero (LCP)
+   ====================================================================== */
+.hero {
+  min-height: 600px;
+  color: var(--white-color);
+  display: flex; justify-content: center; align-items: center; text-align: center;
+  padding: 3rem 1rem;
+  
+  /* Sfondo di default per DESKTOP (con fallback) */
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+                    url('images/campi2.jpg');
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+                    url('images/campi2.webp');
+  
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin-bottom: .8rem;
+  line-height: 1.2;
+  color: var(--white-color);
+}
+.hero-subtitle { font-size: 1.1rem; margin-bottom: 1.2rem; }
+.hero-buttons-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+/* ======================================================================
+   6️⃣  CTA button
+   ====================================================================== */
+.cta-button {
+  display: inline-block; background: var(--accent-color); color: var(--white-color);
+  padding: 15px 30px; font-weight: 700; font-size: 1rem;
+  text-transform: uppercase; border-radius: var(--radius); border: 2px solid transparent;
+  cursor: pointer; transition: background .3s, border-color .3s;
+}
 .cta-button:hover, .cta-button:focus-visible {
   background: #4CAF50; border-color: #4CAF50;
 }
 
 /* ======================================================================
-   Sections & Titles
+   7️⃣  Sections & Titles
    ====================================================================== */
 .content-section { padding: 60px 0; }
 .bg-light { background: var(--light-bg-color); }
 
 /* ======================================================================
-   Image helpers
+   8️⃣  Image helpers
    ====================================================================== */
 .image-content picture,
 .image-content img {
@@ -49,7 +133,7 @@ textarea:focus-visible, select:focus-visible {
 }
 
 /* ======================================================================
-   Product grid
+   9️⃣  Product grid
    ====================================================================== */
 .product-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
@@ -69,7 +153,7 @@ textarea:focus-visible, select:focus-visible {
 .product-info h3 { margin-top: 0; }
 
 /* ======================================================================
-   Forms
+   🔟  Forms
    ====================================================================== */
 .form-layout { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
 .form-group { flex: 1 1 45%; display: flex; flex-direction: column; }
@@ -92,42 +176,59 @@ textarea:focus-visible, select:focus-visible {
 }
 
 /* ======================================================================
-   Carousel
+   1️⃣1. Prenotazioni
    ====================================================================== */
-.prenotazioni-wrapper { position: relative; }
+/* MODIFICA: Layout a scorrimento con scrollbar visibile (SOLO SU MOBILE/TABLET) */
 .prenotazioni-container {
-  display: grid; grid-auto-flow: column; grid-auto-columns: 85%;
-  overflow-x: auto; padding-bottom: 1.5rem; scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; gap: 1rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 90%; /* Ogni box occupa il 90% per far intravedere il successivo */
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+  margin: 0 -1rem; /* Compensa il padding per allineare ai bordi */
+  scroll-snap-type: x mandatory;
 }
-.prenotazioni-container::-webkit-scrollbar { display: none; }
 
 .prenotazione-box {
-  background: var(--light-bg-color); padding: 2rem; border-radius: var(--radius);
-  border: 1px solid #e0e0e0; box-shadow: var(--shadow-light);
-  scroll-snap-align: start;
+  background: var(--light-bg-color);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid #e0e0e0;
+  box-shadow: var(--shadow-light);
+  scroll-snap-align: center; /* Centra il box quando si scorre */
 }
 .prenotazione-box h3 { margin-top: 0; font-size: 1.8rem; }
 .prenotazione-box p { margin-bottom: 1.5rem; }
-.scroll-arrow { display: none; position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(93,64,55,.7); color: #fff; border: none; border-radius: 50%;
-  width: 45px; height: 45px; font-size: 1.8rem; cursor: pointer; transition: background .3s; z-index: 10; }
-.scroll-arrow.prev { left: -20px; }
-.scroll-arrow.next { right: -20px; }
-.scroll-arrow:hover { background: rgba(93,64,55,1); }
+
+/* Stile per la scrollbar (la rendiamo visibile e carina) */
+.prenotazioni-container::-webkit-scrollbar {
+    height: 8px;
+}
+.prenotazioni-container::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+.prenotazioni-container::-webkit-scrollbar-thumb {
+    background: #b0bec5;
+    border-radius: 10px;
+}
+.prenotazioni-container::-webkit-scrollbar-thumb:hover {
+    background: #90a4ae;
+}
 
 /* ======================================================================
-   Contact info / map
+   1️⃣2. Contact info / map
    ====================================================================== */
 .contact-info p { margin-bottom: .5rem; font-size: 1.1rem; }
 .map-container { margin-top: 2rem; border-radius: var(--radius); overflow: hidden; }
 
 /* ======================================================================
-   Footer
+   1️⃣3. Footer
    ====================================================================== */
+/* ... (Footer invariato) ... */
 .footer { background: var(--primary-color); color: var(--white-color); padding: 3rem 0; }
+.footer a { color: var(--white-color); text-decoration: none; }
 .footer-content { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; text-align: center; }
 .footer-logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; flex-basis: 100%; }
 .footer-middle-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; width: 100%; margin: 1rem 0; }
@@ -144,8 +245,9 @@ textarea:focus-visible, select:focus-visible {
 .footer-links a { margin: 0 .5rem; }
 
 /* ======================================================================
-   Cookie banner
+   1️⃣4. Cookie banner
    ====================================================================== */
+/* ... (Banner invariato) ... */
 #cookie-banner {
   position: fixed; bottom: 0; left: 0; right: 0;
   background: var(--primary-color); color: var(--white-color);
@@ -164,25 +266,44 @@ textarea:focus-visible, select:focus-visible {
 #cookie-accept-btn:hover { background: #4CAF50; }
 
 /* ======================================================================
-   Responsive tweaks
+   📱  Responsive tweaks
    ====================================================================== */
-@media (max-width: 992px) {
-  .scroll-arrow { display: block; }
+/* MODIFICA: Su desktop, i box si affiancano normalmente */
+@media (min-width: 993px) {
   .prenotazioni-container {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: -15px;
-    margin-right: -15px;
+    display: flex;
+    overflow-x: visible; /* Disattiva lo scorrimento */
+    padding: 0;
+    margin: 0;
+  }
+  .prenotazione-box {
+    flex: 1;
   }
 }
+
 @media (max-width: 768px) {
+  .header .container { flex-direction: column; gap: .5rem; }
+  .main-nav ul { flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+  .hero-title { font-size: 2.2rem; }
+  .hero-subtitle { font-size: 1.1rem; }
+  .hero-buttons-container { flex-direction: column; align-items: center; gap: .8rem; }
+  .cta-button { padding: 12px 25px; width: 80%; max-width: 300px; }
   .section-container { flex-direction: column; gap: 2rem; }
   #chi-siamo .section-container { flex-direction: column-reverse; }
   .form-group { flex-basis: 100%; }
   #cookie-banner { flex-direction: column; }
   #cookie-banner p { text-align: center; margin-bottom: 1rem; }
+
+  /* Usa un'immagine più leggera per lo sfondo della Hero section su mobile */
+  .hero {
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+                      url('images/campi2-mobile.jpg');
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+                      url('images/campi2-mobile.webp');
+  }
 }
 @media (max-width: 480px) {
-  .scroll-arrow.prev { left: 5px; }
-  .scroll-arrow.next { right: 5px; }
+  .hero-title { font-size: 1.8rem; }
+  .main-nav ul { gap: 1rem; }
+  .cta-button { width: 100%; }
 }
