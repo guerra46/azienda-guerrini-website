@@ -98,7 +98,7 @@ textarea:focus-visible, select:focus-visible {
   font-size: clamp(2.2rem, 5vw, 3rem);
   margin-bottom: .8rem;
   line-height: 1.2;
-  color: var(--white-color); /* MODIFICA 1: Forza il colore bianco per sovrascrivere la regola h1 */
+  color: var(--white-color);
 }
 .hero-subtitle { font-size: 1.1rem; margin-bottom: 1.2rem; }
 .hero-buttons-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
@@ -179,20 +179,18 @@ textarea:focus-visible, select:focus-visible {
    1️⃣1. Carousel
    ====================================================================== */
 .prenotazioni-wrapper { position: relative; }
+
+/* MODIFICA: Questa è la regola per il DESKTOP */
 .prenotazioni-container {
-  display: grid; grid-auto-flow: column; grid-auto-columns: 85%;
-  overflow-x: auto; padding-bottom: 1.5rem; scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; gap: 1rem;
-  /* hide scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
 }
-.prenotazioni-container::-webkit-scrollbar { display: none; } /* Chrome, Safari, Opera */
 
 .prenotazione-box {
   background: var(--light-bg-color); padding: 2rem; border-radius: var(--radius);
   border: 1px solid #e0e0e0; box-shadow: var(--shadow-light);
-  scroll-snap-align: start;
+  flex: 1; /* Ciascun box occupa metà dello spazio disponibile */
 }
 .prenotazione-box h3 { margin-top: 0; font-size: 1.8rem; }
 .prenotazione-box p { margin-bottom: 1.5rem; }
@@ -219,7 +217,7 @@ textarea:focus-visible, select:focus-visible {
 .footer-middle-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; width: 100%; margin: 1rem 0; }
 .footer-contacts, .footer-social {
   min-width: 250px;
-  text-align: center; /* MODIFICA 2: Centra il contenuto dei box */
+  text-align: center;
 }
 .footer-social a {
   display: inline-flex; align-items: center; gap: .5rem; padding: 8px 16px; border: 1px solid var(--white-color);
@@ -254,6 +252,30 @@ textarea:focus-visible, select:focus-visible {
    ====================================================================== */
 @media (max-width: 992px) {
   .scroll-arrow { display: block; }
+  
+  /* MODIFICA: Questa è la regola per lo slider su MOBILE/TABLET */
+  .prenotazioni-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 85%;
+    overflow-x: auto;
+    padding-bottom: 1.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  
+  .prenotazione-box {
+    scroll-snap-align: center;
+  }
+  
+  .prenotazioni-container::-webkit-scrollbar { display: none; }
+  .prenotazioni-container { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
 @media (max-width: 768px) {
