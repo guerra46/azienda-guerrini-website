@@ -24,7 +24,7 @@
 /* ======================================================================
    2️⃣  Global reset + helpers
    ====================================================================== */
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0; 
@@ -94,7 +94,12 @@ textarea:focus-visible, select:focus-visible {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.hero-title { font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: .8rem; line-height: 1.2; }
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin-bottom: .8rem;
+  line-height: 1.2;
+  color: var(--accent-color); /* MODIFICA 1: Cambiato colore del titolo */
+}
 .hero-subtitle { font-size: 1.1rem; margin-bottom: 1.2rem; }
 .hero-buttons-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
@@ -212,7 +217,10 @@ textarea:focus-visible, select:focus-visible {
 .footer-content { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; text-align: center; }
 .footer-logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; flex-basis: 100%; }
 .footer-middle-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; width: 100%; margin: 1rem 0; }
-.footer-contacts, .footer-social { min-width: 250px; }
+.footer-contacts, .footer-social {
+  min-width: 250px;
+  text-align: center; /* MODIFICA 2: Centra il contenuto dei box */
+}
 .footer-social a {
   display: inline-flex; align-items: center; gap: .5rem; padding: 8px 16px; border: 1px solid var(--white-color);
   border-radius: .5rem; transition: background .3s, color .3s;
