@@ -46,7 +46,11 @@
   <!-- ==============================================================
        2. Optimized Asset Loading
   ============================================================== -->
-  <link rel="preload" as="image" href="images/campi2.webp" fetchpriority="high">
+  <!-- MODIFICA: Preload condizionale per l'immagine Hero -->
+<!-- Precarica l'immagine per mobile su schermi piccoli -->
+<link rel="preload" as="image" href="images/campi2-mobile.webp" fetchpriority="high" media="(max-width: 768px)">
+<!-- Precarica l'immagine per desktop su schermi grandi -->
+<link rel="preload" as="image" href="images/campi2.webp" fetchpriority="high" media="(min-width: 769px)">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
