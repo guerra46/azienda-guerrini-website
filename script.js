@@ -13,14 +13,19 @@
   /* ------------------------------------------------------------------
    *  1️⃣  Utility: calcolo del gap di un container in pixel
    * ------------------------------------------------------------------ */
-  const getGap = el => parseFloat(getComputedStyle(el).gap) ?? 0;
+  const getGap = el => {
+    if (!el) return 0;
+    const gapValue = getComputedStyle(el).gap;
+    return parseFloat(gapValue) || 0;
+  }
 
   /* ------------------------------------------------------------------
    *  2️⃣  Carousel di prenotazioni
    * ------------------------------------------------------------------ */
   const initCarousel = () => {
+    // MODIFICA: Selezioniamo il nuovo contenitore genitore "wrapper"
     const wrapper = document.querySelector(".prenotazioni-wrapper");
-    if (!wrapper) return;                         // pagina non ha questo widget
+    if (!wrapper) return;
 
     const container = wrapper.querySelector(".prenotazioni-container");
     const prevBtn   = wrapper.querySelector(".scroll-arrow.prev");
@@ -36,26 +41,37 @@
     };
 
     /* -------------------- Animazione al click --------------------- */
-    const scroll = dir => container.scrollBy({
-      left: getScrollAmount() * dir,
-      behavior: "smooth"
-    });
+    const scroll = dir => {
+        const amount = getScrollAmount();
+        if (amount > 0) {
+            container.scrollBy({
+                left: amount * dir,
+                behavior: "smooth"
+            });
+        }
+    };
 
     prevBtn.addEventListener("click", () => scroll(-1));
     nextBtn.addEventListener("click", () => scroll(1));
 
-    /* -------------------- Stato pulsanti ----------------------- */
+    /* -------------------- Stato pulsanti (Opzionale ma utile) ----------------------- */
     const updateArrows = () => {
+      // Tolleranza di 1px per evitare errori di arrotondamento
       const atStart = container.scrollLeft <= 0;
-      const atEnd   = container.scrollLeft + container.clientWidth >=
-                      container.scrollWidth - 1; // 1 px tolerance
+      const atEnd   = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
 
       prevBtn.disabled = atStart;
       nextBtn.disabled = atEnd;
+      
+      // Aggiungiamo uno stile per rendere visibile lo stato disabilitato
+      prevBtn.style.opacity = atStart ? '0.5' : '1';
+      nextBtn.style.opacity = atEnd ? '0.5' : '1';
     };
 
     container.addEventListener("scroll", updateArrows);
-    updateArrows();   // stato iniziale
+    // Chiamata iniziale per impostare lo stato corretto all'avvio
+    // Usiamo un piccolo timeout per dare al browser il tempo di calcolare le dimensioni
+    setTimeout(updateArrows, 100);
   };
 
   /* ------------------------------------------------------------------
