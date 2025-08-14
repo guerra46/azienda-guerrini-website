@@ -155,7 +155,11 @@
           </ul>
         </div>
         <div class="image-content">
-          <img src="images/cascina1.jpg" alt="La cascina dell'Azienda Agricola Guerrini a Bagnolo Mella, Brescia">
+          <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
+          <picture>
+            <source srcset="images/cascina1.webp" type="image/webp">
+            <img src="images/cascina1.jpg" alt="La cascina dell'Azienda Agricola Guerrini a Bagnolo Mella, Brescia" width="500" height="350" loading="lazy">
+          </picture>
         </div>
       </div>
     </section>
@@ -166,11 +170,46 @@
         <h2 id="section-prodotti" class="section-title">I Nostri Salumi Artigianali Bresciani</h2>
         <p class="section-subtitle">Qualità artigianale che si sente al primo morso.</p>
         <div class="product-grid">
-          <div class="product-card"><img src="images/salame.jpg" alt="Salame nostrano bresciano a grana grossa, prodotto artigianalmente"><div class="product-info"><h3>Salame Nostrano</h3><p>A grana grossa, fresco o stagionato lentamente (su richiesta) per un sapore inconfondibile e un profumo intenso.</p></div></div>
-          <div class="product-card"><img src="images/salamine.jpg" alt="Salamine fresche bresciane, ideali da cuocere alla griglia"><div class="product-info"><h3>Salamine</h3><p>Perfette da cuocere, ideali per grigliate in compagnia o per piatti invernali robusti.</p></div></div>
-          <div class="product-card"><img src="images/coppa.jpg" alt="Coppa stagionata artigianale dell'Azienda Agricola Guerrini"><div class="product-info"><h3>Coppa</h3><p>Morbida e delicata, con una venatura di grasso che la rende irresistibilmente gustosa.</p></div></div>
-          <div class="product-card"><img src="images/pancetta.jpg" alt="Pancetta arrotolata e speziata secondo la tradizione bresciana"><div class="product-info"><h3>Pancetta</h3><p>Arrotolata e speziata secondo la tradizione, ottima per insaporire ogni piatto o gustata da sola.</p></div></div>
-          <div class="product-card"><img src="images/cotechino.jpg" alt="Cotechino artigianale bresciano, produzione stagionale"><div class="product-info"><h3>Cotechino (Stagionale)</h3><p>Il re della tavola invernale. Produzione limitata per garantire la massima freschezza.</p></div></div>
+          <div class="product-card">
+            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
+            <picture>
+              <source srcset="images/salame.webp" type="image/webp">
+              <img src="images/salame.jpg" alt="Salame nostrano bresciano a grana grossa, prodotto artigianalmente" width="600" height="600" loading="lazy">
+            </picture>
+            <div class="product-info"><h3>Salame Nostrano</h3><p>A grana grossa, fresco o stagionato lentamente (su richiesta) per un sapore inconfondibile e un profumo intenso.</p></div>
+          </div>
+          <div class="product-card">
+            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
+            <picture>
+              <source srcset="images/salamine.webp" type="image/webp">
+              <img src="images/salamine.jpg" alt="Salamine fresche bresciane, ideali da cuocere alla griglia" width="600" height="600" loading="lazy">
+            </picture>
+            <div class="product-info"><h3>Salamine</h3><p>Perfette da cuocere, ideali per grigliate in compagnia o per piatti invernali robusti.</p></div>
+          </div>
+          <div class="product-card">
+            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
+            <picture>
+              <source srcset="images/coppa.webp" type="image/webp">
+              <img src="images/coppa.jpg" alt="Coppa stagionata artigianale dell'Azienda Agricola Guerrini" width="600" height="600" loading="lazy">
+            </picture>
+            <div class="product-info"><h3>Coppa</h3><p>Morbida e delicata, con una venatura di grasso che la rende irresistibilmente gustosa.</p></div>
+          </div>
+          <div class="product-card">
+            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
+            <picture>
+              <source srcset="images/pancetta.webp" type="image/webp">
+              <img src="images/pancetta.jpg" alt="Pancetta arrotolata e speziata secondo la tradizione bresciana" width="600" height="600" loading="lazy">
+            </picture>
+            <div class="product-info"><h3>Pancetta</h3><p>Arrotolata e speziata secondo la tradizione, ottima per insaporire ogni piatto o gustata da sola.</p></div>
+          </div>
+          <div class="product-card">
+            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
+            <picture>
+              <source srcset="images/cotechino.webp" type="image/webp">
+              <img src="images/cotechino.jpg" alt="Cotechino artigianale bresciano, produzione stagionale" width="600" height="600" loading="lazy">
+            </picture>
+            <div class="product-info"><h3>Cotechino (Stagionale)</h3><p>Il re della tavola invernale. Produzione limitata per garantire la massima freschezza.</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -180,7 +219,6 @@
       <div class="container">
         <h2 id="section-prenotazioni" class="section-title">Prenota i Nostri Salumi a Km 0</h2>
         <p class="section-subtitle">Scegli cosa prenotare: le nostre mezzene di maiale o i salumi artigianali.</p>
-
         <div class="prenotazioni-wrapper">
           <div class="prenotazioni-container">
             <!-- MEZZENE DI MAIALE -->
@@ -199,7 +237,6 @@
                 Grazie! La tua prenotazione è stata inviata. Ti ricontatteremo al più presto per tutti i dettagli.
               </div>
             </div>
-
             <!-- SALUMI -->
             <div class="prenotazione-salumi prenotazione-box">
               <h3>Richiedi i Nostri Salumi</h3>
@@ -223,8 +260,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Arrows (visible via media‑query) -->
           <button class="scroll-arrow prev" aria-label="Precedente">&lt;</button>
           <button class="scroll-arrow next" aria-label="Successivo">&gt;</button>
         </div>

@@ -90,12 +90,22 @@ a:hover, a:focus-visible { color: #45a049; }
    ====================================================================== */
 .hero {
   min-height: 600px;
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-              url('images/campi2.jpg') center/cover no-repeat;
   color: var(--white-color);
   display: flex; justify-content: center; align-items: center;
   text-align: center;
   padding: 40px 20px;
+  
+  /* MODIFICA: Aggiunto fallback JPG + versione WebP per lo sfondo */
+  /* 1. Fallback per browser vecchi */
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+                    url('images/campi2.jpg');
+  /* 2. Versione WebP per browser moderni (sovrascrive la precedente) */
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+                    url('images/campi2.webp');
+  
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .hero-title { font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: 1rem; }
 .hero-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); margin-bottom: 2rem; }
@@ -135,7 +145,9 @@ a:hover, a:focus-visible { color: #45a049; }
   align-items: center;
 }
 .text-content, .image-content, .form-content { flex: 1; }
-.image-content img {
+.image-content img,
+.image-content picture {
+  display: block; /* Fix for extra space under images */
   width: 100%;
   height: auto;
   border-radius: .5rem;
@@ -156,13 +168,20 @@ a:hover, a:focus-visible { color: #45a049; }
   box-shadow: var(--shadow-light);
   overflow: hidden;
   transition: transform .3s, box-shadow .3s;
+  display: flex; /* Added for better layout control */
+  flex-direction: column;
 }
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-medium);
 }
-.product-card img { width: 100%; height: 220px; object-fit: cover; }
-.product-info { padding: 1.5rem; }
+.product-card img,
+.product-card picture {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.product-info { padding: 1.5rem; flex-grow: 1; }
 .product-info h3 { margin-top: 0; }
 
 /* ======================================================================
@@ -336,6 +355,8 @@ a:hover, a:focus-visible { color: #45a049; }
   .section-container { flex-direction: column; gap: 2rem; }
   #chi-siamo .section-container { flex-direction: column-reverse; }
   .form-group { flex-basis: 100%; }
+  #cookie-banner { flex-direction: column; }
+  #cookie-banner p { text-align: center; margin-bottom: 1rem; }
 }
 @media (max-width: 480px) {
   .hero-title { font-size: 1.8rem; }
@@ -347,4 +368,3 @@ a:hover, a:focus-visible { color: #45a049; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
 }
-
