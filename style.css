@@ -1,370 +1,224 @@
 /* ======================================================================
-   1️⃣  Custom properties (all colors, fonts, spacings, etc.)
+   1️⃣  Root variables
    ====================================================================== */
 :root {
-  /* Colours ------------------------------------------------------------ */
-  --primary-color: #5d4037;      /* dark brown (header/footer)            */
-  --secondary-color: #61443a;    /* slightly lighter (labels)             */
-  --accent-color: #2E7D32;       /* green – CTA and hover                */
-  --text-color: #212121;         /* dark grey – body text                */
-  --light-bg-color: #f5f5f5;     /* light gray – content background      */
-  --white-color: #ffffff;        /* plain white (backgrounds, text)      */
+  /* Colors */
+  --primary-color: #5d4037;
+  --secondary-color: #61443a;
+  --accent-color: #2E7D32;   /* green – CTA & links hover */
+  --text-color: #212121;
+  --light-bg-color: #f5f5f5;
+  --white-color: #ffffff;
 
-  /* Fonts ------------------------------------------------------------- */
+  /* Fonts */
   --font-primary: 'Montserrat', sans-serif;
   --font-secondary: 'Lora', serif;
+  --font-display: swap;
 
-  /* Spacing & Sizing ----------------------------------------------- */
+  /* Layout */
   --gap-standard: 3rem;
   --gap-large: 4rem;
-  --gap-medium: 2rem;
-  --radius: .5rem;               /* element border radius                */
+  --radius: .5rem;
   --shadow-light: 0 4px 15px rgba(0,0,0,.08);
   --shadow-medium: 0 8px 20px rgba(0,0,0,.12);
 }
 
 /* ======================================================================
-   2️⃣  Basics & Normalise overrides
+   2️⃣  Global reset + helpers
    ====================================================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  margin: 0;
-  font-family: var(--font-primary);
-  color: var(--text-color);
-  line-height: 1.6;
-  background: var(--light-bg-color);
-  transition: background .3s var(--transition-ease, ease);
+  margin: 0; font-family: var(--font-primary); color: var(--text-color);
+  line-height: 1.6; background: var(--light-bg-color);
 }
+h1, h2, h3 { font-family: var(--font-secondary); color: var(--primary-color); margin-bottom: 1rem; }
+h2.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; }
+p.section-subtitle { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem; }
 a { color: var(--accent-color); text-decoration: none; }
-a:hover, a:focus-visible { color: #45a049; }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+/* accessibility helpers */
 .visually-hidden {
-  position: absolute !important;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0,0,0,0);
+  position: absolute !important; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(1px,1px,1px,1px);
   white-space: nowrap; border: 0;
+}
+.focusable:focus { outline: 3px dotted var(--accent-color); }
+button:focus-visible, a:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible { outline: 3px dotted var(--accent-color); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
 }
 
 /* ======================================================================
-   3️⃣  Header
+   3️⃣  Layout helpers
+   ====================================================================== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section-container { display: flex; gap: var(--gap-standard); align-items: center; }
+.text-content, .image-content, .form-content { flex: 1; }
+
+/* ======================================================================
+   4️⃣  Header
    ====================================================================== */
 .header {
   background: var(--white-color);
   box-shadow: 0 2px 5px rgba(0,0,0,.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  padding: 1rem 0;
+  position: sticky; top: 0; z-index: 1000; padding: 1rem 0;
 }
-.header .container {
-  display: flex; justify-content: space-between; align-items: center;
-}
-.logo {
-  font-family: var(--font-secondary);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-}
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-}
-.main-nav a {
-  color: var(--text-color);
-  font-weight: 600;
-  transition: color .3s;
-}
+.header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+.main-nav ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+.main-nav a { color: var(--text-color); font-weight: 600; transition: color .3s; }
 .main-nav a:hover { color: var(--accent-color); }
 
 /* ======================================================================
-   4️⃣  Hero
+   5️⃣  Hero (LCP)
    ====================================================================== */
 .hero {
   min-height: 600px;
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+              url('images/campi2.webp') center/cover no-repeat;
   color: var(--white-color);
-  display: flex; justify-content: center; align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  
-  /* MODIFICA: Aggiunto fallback JPG + versione WebP per lo sfondo */
-  /* 1. Fallback per browser vecchi */
-  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-                    url('images/campi2.jpg');
-  /* 2. Versione WebP per browser moderni (sovrascrive la precedente) */
-  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-                    url('images/campi2.webp');
-  
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  display: flex; justify-content: center; align-items: center; text-align: center;
+  padding: 3rem 1rem;
 }
-.hero-title { font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: 1rem; }
-.hero-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); margin-bottom: 2rem; }
+.hero-title { font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: .8rem; line-height: 1.2; }
+.hero-subtitle { font-size: 1.1rem; margin-bottom: 1.2rem; }
 .hero-buttons-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
 /* ======================================================================
-   5️⃣  CTA Buttons
+   6️⃣  CTA button
    ====================================================================== */
 .cta-button {
-  display: inline-block;
-  background: var(--accent-color);
-  color: var(--white-color);
-  padding: 15px 30px;
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: var(--radius);
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: background .3s, border-color .3s;
-  text-transform: uppercase;
+  display: inline-block; background: var(--accent-color); color: var(--white-color);
+  padding: 15px 30px; font-weight: 700; font-size: 1rem;
+  text-transform: uppercase; border-radius: var(--radius); border: 2px solid transparent;
+  cursor: pointer; transition: background .3s, border-color .3s;
 }
-.cta-button:hover,
-.cta-button:focus-visible {
-  background: #45a049;
-  border-color: #45a049;
-  outline: none;
+.cta-button:hover, .cta-button:focus-visible {
+  background: #45a049; border-color: #45a049; outline: none;
 }
 
 /* ======================================================================
-   6️⃣  Section containers
+   7️⃣  Sections & Titles
    ====================================================================== */
-.content-section { padding: var(--gap-large) 0; }
+.content-section { padding: 60px 0; }
 .bg-light { background: var(--light-bg-color); }
-.section-container {
-  display: flex;
-  gap: var(--gap-standard);
-  align-items: center;
-}
-.text-content, .image-content, .form-content { flex: 1; }
-.image-content img,
-.image-content picture {
-  display: block; /* Fix for extra space under images */
-  width: 100%;
-  height: auto;
-  border-radius: .5rem;
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; }
+.section-subtitle { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem; }
+
+/* ======================================================================
+   8️⃣  Image helpers
+   ====================================================================== */
+.image-content img {
+  width: 100%; height: auto; border-radius: var(--radius);
   box-shadow: var(--shadow-light);
 }
 
 /* ======================================================================
-   7️⃣  Product grid
+   9️⃣  Product grid
    ====================================================================== */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
   gap: 2rem;
 }
 .product-card {
-  background: var(--white-color);
-  border-radius: .5rem;
-  box-shadow: var(--shadow-light);
-  overflow: hidden;
-  transition: transform .3s, box-shadow .3s;
-  display: flex; /* Added for better layout control */
-  flex-direction: column;
+  background: var(--white-color); border-radius: var(--radius);
+  box-shadow: var(--shadow-light); overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
 }
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-medium);
-}
-.product-card img,
-.product-card picture {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-.product-info { padding: 1.5rem; flex-grow: 1; }
+.product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-medium); }
+.product-card picture { display: block; }
+.product-card img { width: 100%; height: auto; }
+.product-info { padding: 1.5rem; }
 .product-info h3 { margin-top: 0; }
 
 /* ======================================================================
-   8️⃣  Forms & Inputs
+   🔟  Forms
    ====================================================================== */
 .form-layout { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
 .form-group { flex: 1 1 45%; display: flex; flex-direction: column; }
-.form-group.full-width { flex-basis: 100%; }
-.form-group label, .form-product-list label {
-  margin-bottom: .5rem; font-weight: 600; color: var(--secondary-color);
+.form-group.full-width, .full-width { flex-basis: 100%; }
+.form-group label { margin-bottom: .5rem; font-weight: 600; color: var(--secondary-color); }
+.form-group input, .form-group textarea {
+  padding: 12px; border: 1px solid #ccc; border-radius: .5rem; font-size: 1rem;
 }
-.form-group input,
-.form-group textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: .5rem;
-  font-size: 1rem;
-}
-.form-group input:focus,
-.form-group textarea:focus,
-.form-product-list input:focus {
-  outline: none;
-  border-color: var(--accent-color);
+.form-group input:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--accent-color);
   box-shadow: 0 0 0 3px rgba(46,125,50,.3);
 }
 .submit-button { margin-top: 1.5rem; width: 100%; }
-
-/* Product list inside form – flexible */
-.form-product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
-  flex-basis: 100%;
-}
-.form-product-list label {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-}
-.form-product-list input {
-  width: 80px; padding: 8px; border: 1px solid #ccc; border-radius: .5rem;
-}
-
-/* Confirmation boxes (hidden by default) */
+.form-product-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 1rem; flex-basis: 100%; }
+.form-product-list label { display: flex; align-items: center; gap: .5rem; }
+.form-product-list input { width: 80px; padding: 8px; border: 1px solid #ccc; border-radius: .5rem; }
 .form-conferma {
-  background: #e8f5e9; /* light green */
-  color: #2e7d32;
-  padding: 1rem;
-  border-radius: .5rem;
-  margin-top: 1rem;
-  font-weight: 600;
-  text-align: center;
-  display: none;            /* toggled via JS   */
+  background: #e8f5e9; color: #2e7d32; padding: 1rem; border-radius: .5rem;
+  margin-top: 1rem; text-align: center; font-weight: 600; display: none;
 }
 
 /* ======================================================================
-   9️⃣  Prenotazioni carousel
+   1️⃣1. Carousel
    ====================================================================== */
 .prenotazioni-wrapper { position: relative; }
 .prenotazioni-container {
-  display: flex;
-  gap: 2rem;
-  align-items: stretch;
+  display: grid; grid-auto-flow: column; grid-auto-columns: 85%;
+  overflow-x: auto; padding-bottom: 1.5rem; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; gap: 1rem;
 }
 .prenotazione-box {
-  background: var(--light-bg-color);
-  border: 1px solid #e0e0e0;
-  padding: 2rem;
-  border-radius: .5rem;
-  box-shadow: var(--shadow-light);
-  flex: 1 0 100%;
-}
-@media (min-width: 993px) {
-  .prenotazione-box { flex-basis: 50%; }
+  background: var(--light-bg-color); padding: 2rem; border-radius: var(--radius);
+  border: 1px solid #e0e0e0; box-shadow: var(--shadow-light);
+  scroll-snap-align: start; flex: 1 0 100%;
 }
 .prenotazione-box h3 { margin-top: 0; font-size: 1.8rem; }
 .prenotazione-box p { margin-bottom: 1.5rem; }
-.scroll-arrow {
-  display: none; /* shown only via media query */
-  position: absolute;
-  top: 50%; transform: translateY(-50%);
-  background: rgba(93,64,55,.7);
-  color: #fff; border: none;
-  border-radius: 50%; width: 45px; height: 45px;
-  font-size: 1.8rem; cursor: pointer;
-  transition: background .3s;
-}
-.scroll-arrow:hover { background: rgba(93,64,55,1); }
+.scroll-arrow { display: none; position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(93,64,55,.7); color: #fff; border: none; border-radius: 50%;
+  width: 45px; height: 45px; font-size: 1.8rem; cursor: pointer; transition: background .3s; }
 .scroll-arrow.prev { left: -20px; }
 .scroll-arrow.next { right: -20px; }
-@media (max-width: 992px) {
-  .prenotazioni-container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 85%;
-    overflow-x: auto;
-    padding-bottom: 1.5rem;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-left: 15px; padding-right: 15px;
-    margin-left: -15px; margin-right: -15px;
-  }
-  .prenotazione-box { scroll-snap-align: center; }
-  .scroll-arrow { display: block; }
-  /* hide scrollbar */
-  .prenotazioni-container::-webkit-scrollbar { display: none; }
-  .prenotazioni-container { -ms-overflow-style: none; scrollbar-width: none; }
-}
+.scroll-arrow:hover { background: rgba(93,64,55,1); }
+@media (max-width: 992px) { .scroll-arrow { display: block; } }
 
 /* ======================================================================
-   🔑  Contact section
+   1️⃣2. Contact info / map
    ====================================================================== */
 .contact-info p { margin-bottom: .5rem; font-size: 1.1rem; }
-.map-container { margin-top: 2rem; border-radius: .5rem; overflow: hidden; }
+.map-container { margin-top: 2rem; border-radius: var(--radius); overflow: hidden; }
 
 /* ======================================================================
-   ⛑  Footer
+   1️⃣3. Footer
    ====================================================================== */
-.footer { background: var(--primary-color); color: var(--white-color); padding: 40px 0; }
-.footer a { color: var(--white-color); }
-.footer-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; text-align: center; }
+.footer { background: var(--primary-color); color: var(--white-color); padding: 3rem 0; }
+.footer a { color: var(--white-color); text-decoration: none; }
+.footer-content { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; text-align: center; }
 .footer-logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 700; flex-basis: 100%; }
-.footer-middle-section {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; width: 100%; margin: 1rem 0;
-}
+.footer-middle-section { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; width: 100%; margin: 1rem 0; }
 .footer-contacts, .footer-social { min-width: 250px; }
 .footer-social a {
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: 8px 16px; border: 1px solid var(--white-color); border-radius: .5rem;
-  transition: background .3s, color .3s;
+  display: inline-flex; align-items: center; gap: .5rem; padding: 8px 16px; border: 1px solid var(--white-color);
+  border-radius: .5rem; transition: background .3s, color .3s;
 }
-.footer-social a:hover {
-  background: var(--white-color);
-  color: var(--primary-color);
-}
+.footer-social a:hover { background: var(--white-color); color: var(--primary-color); }
 .footer-legal { flex-basis: 100%; margin-top: 1.5rem; font-size: .9rem; opacity: .8; }
 .footer-links a { margin: 0 .5rem; }
 
 /* ======================================================================
-   📦  Cookie banner (same markup as in the HTML)
+   1️⃣4. Cookie banner
    ====================================================================== */
 #cookie-banner {
   position: fixed; bottom: 0; left: 0; right: 0;
   background: var(--primary-color); color: var(--white-color);
   padding: 1rem; z-index: 2000;
-  box-shadow: 0 -2px 10px rgba(0,0,0,.2);
-  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-  gap: 1rem;
-  transform: translateY(100%); transition: transform .5s;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem;
+  transform: translateY(100%); transition: transform .5s ease-in-out;
 }
 #cookie-banner.show { transform: translateY(0); }
 #cookie-banner p { margin: 0; text-align: center; flex-grow: 1; max-width: 650px; }
 #cookie-banner a { color: var(--white-color); text-decoration: underline; font-weight: 600; }
-#cookie-banner button {
-  background: var(--accent-color); color: var(--white-color);
-  border: none; padding: 10px 25px; border-radius: .5rem; cursor: pointer;
-  font-weight: 700; transition: background .3s; flex-shrink: 0;
+#cookie-accept-btn {
+  background: var(--accent-color); color: var(--white-color); border: none;
+  padding: 10px 25px; border-radius: .5rem; cursor: pointer; font-weight: 700;
+  transition: background .3s;
 }
-#cookie-banner button:hover { background: #45a049; }
-
-/* ======================================================================
-   📱  Responsive tweaks
-   ====================================================================== */
-@media (max-width: 768px) {
-  .header .container { flex-direction: column; gap: .5rem; }
-  .main-nav ul { flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
-  .hero-title { font-size: 2.2rem; }
-  .hero-subtitle { font-size: 1.1rem; }
-  .hero-buttons-container { flex-direction: column; align-items: center; gap: .8rem; }
-  .cta-button { padding: 12px 25px; width: 80%; max-width: 300px; }
-  .section-container { flex-direction: column; gap: 2rem; }
-  #chi-siamo .section-container { flex-direction: column-reverse; }
-  .form-group { flex-basis: 100%; }
-  #cookie-banner { flex-direction: column; }
-  #cookie-banner p { text-align: center; margin-bottom: 1rem; }
-}
-@media (max-width: 480px) {
-  .hero-title { font-size: 1.8rem; }
-  .main-nav ul { gap: 1rem; }
-  .cta-button { width: 100%; }
-  .scroll-arrow.prev { left: 5px; }
-  .scroll-arrow.next { right: 5px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
-}
+#cookie-accept-btn:hover { background: #45a049; }
