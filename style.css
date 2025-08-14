@@ -140,8 +140,22 @@ textarea:focus-visible, select:focus-visible {
   border-radius: .5rem; transition: background .3s, color .3s;
 }
 .footer-social a:hover { background: var(--white-color); color: var(--primary-color); }
-.footer-legal { flex-basis: 100%; margin-top: 1.5rem; font-size: .9rem; opacity: .8; }
-.footer-links a { margin: 0 .5rem; }
+
+/* MODIFICA: Risolve il problema di contrasto nel footer */
+.footer-legal {
+  flex-basis: 100%;
+  margin-top: 1.5rem;
+  font-size: .9rem;
+  color: rgba(255, 255, 255, 0.8); /* Testo non link con opacità */
+}
+.footer-legal a, .footer-contacts a, .footer-social a {
+    color: var(--white-color); /* Link bianchi puri, massimo contrasto */
+}
+.footer-links a { 
+    margin: 0 .5rem;
+    text-decoration: underline; /* Aggiunge sottolineatura per riconoscibilità */
+}
+/* FINE MODIFICA */
 
 /* ======================================================================
    Cookie banner
