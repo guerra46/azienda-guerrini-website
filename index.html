@@ -46,14 +46,15 @@
   <!-- ==============================================================
        2. Optimized Asset Loading
   ============================================================== -->
-  <!-- MODIFICA: Preload condizionale per l'immagine Hero -->
-<!-- Precarica l'immagine per mobile su schermi piccoli -->
-<link rel="preload" as="image" href="images/campi2-mobile.webp" fetchpriority="high" media="(max-width: 768px)">
-<!-- Precarica l'immagine per desktop su schermi grandi -->
-<link rel="preload" as="image" href="images/campi2.webp" fetchpriority="high" media="(min-width: 769px)">
+  <!-- Preload condizionale per l'immagine Hero -->
+  <link rel="preload" as="image" href="images/campi2-mobile.webp" fetchpriority="high" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="images/campi2.webp" fetchpriority="high" media="(min-width: 769px)">
 
+  <!-- Preconnect ai domini esterni più importanti -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- MODIFICA: Aggiunto preconnect per Font Awesome -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   <!-- Carica i font e le icone in modo non bloccante -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
@@ -200,9 +201,8 @@
       <div class="container">
         <h2 id="section-title-prenotazioni" class="section-title">Prenota i Nostri Salumi a Km 0</h2>
         <p class="section-subtitle">Scegli cosa prenotare: le nostre mezzene di maiale o i salumi artigianali.</p>
-        
-        <!-- MODIFICA: Rimosso il wrapper e le frecce per una struttura più semplice -->
-        <div class="prenotazioni-container">
+        <div class="prenotazioni-wrapper">
+          <div class="prenotazioni-container">
             <div id="sezione-mezzene-stagionale" class="prenotazione-box">
               <h3>Prenota le Mezzene di Maiale</h3>
               <p>Qualità superiore per le tue preparazioni casalinghe, disponibili tutto l'anno.</p>
@@ -239,6 +239,9 @@
                 Grazie! La tua richiesta è stata inviata. Ti risponderemo al più presto.
               </div>
             </div>
+          </div>
+          <button class="scroll-arrow prev" aria-label="Precedente">&lt;</button>
+          <button class="scroll-arrow next" aria-label="Successivo">&gt;</button>
         </div>
       </div>
     </section>
