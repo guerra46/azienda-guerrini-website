@@ -1,81 +1,105 @@
-// Attende che il contenuto della pagina sia completamente caricato
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ *  ✔️  script.js (Versione “pulita”)
+ *
+ *  1️⃣  IIFE + strict mode → blocca il polluting del global scope.
+ *  2️⃣  Funzione `initCarousel()` → logica per il widget prenotazioni.
+ *  3️⃣  Opzionali: sezione mezzene, form‑submit confirmation.
+ *  4️⃣  `DOMContentLoaded` → avviamo tutto.
+ */
 
-    /* --- LOGICA PER LA SEZIONE STAGIONALE DELLE MEZZENE (DISATTIVATA) ---
-       Questo blocco di codice è stato commentato per rendere la sezione
-       delle mezzene visibile tutto l'anno, come da richiesta.
-       La visibilità ora è gestita direttamente dall'HTML.
-    
-    const sezioneMezzene = document.getElementById('sezione-mezzene-stagionale');
-    
-    // Controlla se l'elemento esiste prima di procedere
-    if (sezioneMezzene) {
-        const oggi = new Date();
-        const meseCorrente = oggi.getMonth(); // 0 = Gennaio, 10 = Novembre, 11 = Dicembre
+(() => {
+  "use strict";
 
-        // La sezione è visibile da Novembre (mese 10) a Marzo (mese 2)
-        // La condizione copre: Nov, Dic, Gen, Feb, Mar
-        if (meseCorrente >= 10 || meseCorrente <= 2) {
-            sezioneMezzene.style.display = 'block';
-        }
+  /* ------------------------------------------------------------------
+   *  1️⃣  Utility: calcolo del gap di un container in pixel
+   * ------------------------------------------------------------------ */
+  const getGap = el => parseFloat(getComputedStyle(el).gap) ?? 0;
+
+  /* ------------------------------------------------------------------
+   *  2️⃣  Carousel di prenotazioni
+   * ------------------------------------------------------------------ */
+  const initCarousel = () => {
+    const wrapper = document.querySelector(".prenotazioni-wrapper");
+    if (!wrapper) return;                         // pagina non ha questo widget
+
+    const container = wrapper.querySelector(".prenotazioni-container");
+    const prevBtn   = wrapper.querySelector(".scroll-arrow.prev");
+    const nextBtn   = wrapper.querySelector(".scroll-arrow.next");
+
+    if (!(container && prevBtn && nextBtn)) return;
+
+    /* Quantità da scorrere = larghezza box + gap tra i box */
+    const getScrollAmount = () => {
+      const box = container.querySelector(".prenotazione-box");
+      const gap = getGap(container);
+      return box ? box.offsetWidth + gap : 0;
+    };
+
+    /* -------------------- Animazione al click --------------------- */
+    const scroll = dir => container.scrollBy({
+      left: getScrollAmount() * dir,
+      behavior: "smooth"
+    });
+
+    prevBtn.addEventListener("click", () => scroll(-1));
+    nextBtn.addEventListener("click", () => scroll(1));
+
+    /* -------------------- Stato pulsanti ----------------------- */
+    const updateArrows = () => {
+      const atStart = container.scrollLeft <= 0;
+      const atEnd   = container.scrollLeft + container.clientWidth >=
+                      container.scrollWidth - 1; // 1 px tolerance
+
+      prevBtn.disabled = atStart;
+      nextBtn.disabled = atEnd;
+    };
+
+    container.addEventListener("scroll", updateArrows);
+    updateArrows();   // stato iniziale
+  };
+
+  /* ------------------------------------------------------------------
+   *  3️⃣  Sezione mezzene stagionale (opzionale, commentato)
+   * ------------------------------------------------------------------ */
+  /*  
+  const sezioneMezzene = document.getElementById('sezione-mezzene-stagionale');
+  if (sezioneMezzene) {
+    const oggi   = new Date();
+    const month  = oggi.getMonth();   // 0 = Gennaio
+    if (month >= 10 || month <= 2) {
+      sezioneMezzene.style.display = 'block';
     }
-    */
+  }
+  */
 
+  /* ------------------------------------------------------------------
+   *  4️⃣  Gestione submit / conferma (opzionale, commentato)
+   * ------------------------------------------------------------------ */
+  /*
+  function handleFormSubmit(formId, confermaId) {
+    const form = document.getElementById(formId);
+    const conferma = document.getElementById(confermaId);
+    if (!form || !conferma) return;
 
-    /* --- GESTIONE INVIO MODULI (DISATTIVATA) ---
-       Questa funzione è stata disattivata per permettere a FormSubmit di gestire
-       l'invio dei moduli. Il comportamento standard del browser (attivato 
-       dall'attributo "action" nel form) ora prenderà il sopravvento.
-       
-    function handleFormSubmit(formId, confermaId) {
-        const form = document.getElementById(formId);
-        const confermaMessaggio = document.getElementById(confermaId);
+    form.addEventListener('submit', e => {
+      e.preventDefault();                // evita l’invio default
+      form.style.display   = 'none';
+      conferma.style.display = 'block';
+      // → qui potresti fare un fetch al tuo backend
+    });
+  }
 
-        if (form && confermaMessaggio) {
-            form.addEventListener('submit', function(event) {
-                // Previene l'invio standard del modulo
-                event.preventDefault(); 
-                
-                // Nasconde il modulo e mostra il messaggio di conferma
-                form.style.display = 'none';
-                confermaMessaggio.style.display = 'block';
+  handleFormSubmit('form-mezzene', 'mezzene-conferma');
+  handleFormSubmit('form-salumi', 'salumi-conferma');
+  handleFormSubmit('form-contatti', 'contatti-conferma');
+  */
 
-                // Qui, in un'applicazione reale, invieresti i dati a un server
-                // Esempio: const formData = new FormData(form);
-                // fetch('/api/prenotazione', { method: 'POST', body: formData });
-            });
-        }
-    }
+  /* ------------------------------------------------------------------
+   *  5️⃣  Avvio alla fine del DOM
+   * ------------------------------------------------------------------ */
+  document.addEventListener("DOMContentLoaded", () => {
+    initCarousel();                // attiva il carousel
+    // altre funzioni possono essere chiamate qui se necessarie
+  });
 
-    // Associa la funzione ai vari moduli
-    handleFormSubmit('form-mezzene', 'mezzene-conferma');
-    handleFormSubmit('form-salumi', 'salumi-conferma');
-    handleFormSubmit('form-contatti', 'contatti-conferma');
-    */
-
-    
-    // --- MODIFICA: GESTIONE SCORRIMENTO PRENOTAZIONI CON FRECCE (Corretto) ---
-    const wrapper = document.querySelector('.prenotazioni-wrapper');
-    if (wrapper) {
-        const container = wrapper.querySelector('.prenotazioni-container');
-        const prevBtn = wrapper.querySelector('.scroll-arrow.prev');
-        const nextBtn = wrapper.querySelector('.scroll-arrow.next');
-        const box = container.querySelector('.prenotazione-box');
-
-        if (container && prevBtn && nextBtn && box) {
-            
-            // Calcola di quanto scorrere (larghezza di un box + il gap in pixel)
-            // Assumiamo che il gap CSS sia 2rem (circa 32px)
-            const scrollAmount = box.offsetWidth + 32;
-
-            nextBtn.addEventListener('click', () => {
-                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            });
-
-            prevBtn.addEventListener('click', () => {
-                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            });
-        }
-    }
-
-});
+})();   // Fin del IIFE
