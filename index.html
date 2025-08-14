@@ -46,7 +46,6 @@
   <!-- ==============================================================
        2. Optimized Asset Loading
   ============================================================== -->
-  <!-- Precarica l'immagine più importante per la velocità (LCP) -->
   <link rel="preload" as="image" href="images/campi2.webp">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,8 +196,9 @@
       <div class="container">
         <h2 id="section-title-prenotazioni" class="section-title">Prenota i Nostri Salumi a Km 0</h2>
         <p class="section-subtitle">Scegli cosa prenotare: le nostre mezzene di maiale o i salumi artigianali.</p>
-        <div class="prenotazioni-wrapper">
-          <div class="prenotazioni-container">
+        
+        <!-- MODIFICA: Rimosso il wrapper e le frecce per una struttura più semplice -->
+        <div class="prenotazioni-container">
             <div id="sezione-mezzene-stagionale" class="prenotazione-box">
               <h3>Prenota le Mezzene di Maiale</h3>
               <p>Qualità superiore per le tue preparazioni casalinghe, disponibili tutto l'anno.</p>
@@ -235,9 +235,6 @@
                 Grazie! La tua richiesta è stata inviata. Ti risponderemo al più presto.
               </div>
             </div>
-          </div>
-          <button class="scroll-arrow prev" aria-label="Precedente">&lt;</button>
-          <button class="scroll-arrow next" aria-label="Successivo">&gt;</button>
         </div>
       </div>
     </section>

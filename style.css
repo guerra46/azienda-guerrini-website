@@ -176,30 +176,46 @@ textarea:focus-visible, select:focus-visible {
 }
 
 /* ======================================================================
-   1️⃣1. Carousel
+   1️⃣1. Prenotazioni
    ====================================================================== */
-.prenotazioni-wrapper { position: relative; }
-
-/* MODIFICA: Questa è la regola per il DESKTOP */
+/* MODIFICA: Layout a scorrimento con scrollbar visibile (SOLO SU MOBILE/TABLET) */
 .prenotazioni-container {
-  display: flex;
-  gap: 2rem;
-  align-items: stretch;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 90%; /* Ogni box occupa il 90% per far intravedere il successivo */
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+  margin: 0 -1rem; /* Compensa il padding per allineare ai bordi */
+  scroll-snap-type: x mandatory;
 }
 
 .prenotazione-box {
-  background: var(--light-bg-color); padding: 2rem; border-radius: var(--radius);
-  border: 1px solid #e0e0e0; box-shadow: var(--shadow-light);
-  flex: 1; /* Ciascun box occupa metà dello spazio disponibile */
+  background: var(--light-bg-color);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid #e0e0e0;
+  box-shadow: var(--shadow-light);
+  scroll-snap-align: center; /* Centra il box quando si scorre */
 }
 .prenotazione-box h3 { margin-top: 0; font-size: 1.8rem; }
 .prenotazione-box p { margin-bottom: 1.5rem; }
-.scroll-arrow { display: none; position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(93,64,55,.7); color: #fff; border: none; border-radius: 50%;
-  width: 45px; height: 45px; font-size: 1.8rem; cursor: pointer; transition: background .3s; z-index: 10; }
-.scroll-arrow.prev { left: -20px; }
-.scroll-arrow.next { right: -20px; }
-.scroll-arrow:hover { background: rgba(93,64,55,1); }
+
+/* Stile per la scrollbar (la rendiamo visibile e carina) */
+.prenotazioni-container::-webkit-scrollbar {
+    height: 8px;
+}
+.prenotazioni-container::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+.prenotazioni-container::-webkit-scrollbar-thumb {
+    background: #b0bec5;
+    border-radius: 10px;
+}
+.prenotazioni-container::-webkit-scrollbar-thumb:hover {
+    background: #90a4ae;
+}
 
 /* ======================================================================
    1️⃣2. Contact info / map
@@ -210,6 +226,7 @@ textarea:focus-visible, select:focus-visible {
 /* ======================================================================
    1️⃣3. Footer
    ====================================================================== */
+/* ... (Footer invariato) ... */
 .footer { background: var(--primary-color); color: var(--white-color); padding: 3rem 0; }
 .footer a { color: var(--white-color); text-decoration: none; }
 .footer-content { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; text-align: center; }
@@ -230,6 +247,7 @@ textarea:focus-visible, select:focus-visible {
 /* ======================================================================
    1️⃣4. Cookie banner
    ====================================================================== */
+/* ... (Banner invariato) ... */
 #cookie-banner {
   position: fixed; bottom: 0; left: 0; right: 0;
   background: var(--primary-color); color: var(--white-color);
@@ -250,32 +268,17 @@ textarea:focus-visible, select:focus-visible {
 /* ======================================================================
    📱  Responsive tweaks
    ====================================================================== */
-@media (max-width: 992px) {
-  .scroll-arrow { display: block; }
-  
-  /* MODIFICA: Questa è la regola per lo slider su MOBILE/TABLET */
+/* MODIFICA: Su desktop, i box si affiancano normalmente */
+@media (min-width: 993px) {
   .prenotazioni-container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 85%;
-    overflow-x: auto;
-    padding-bottom: 1.5rem;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 1rem;
-    
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: -15px;
-    margin-right: -15px;
+    display: flex;
+    overflow-x: visible; /* Disattiva lo scorrimento */
+    padding: 0;
+    margin: 0;
   }
-  
   .prenotazione-box {
-    scroll-snap-align: center;
+    flex: 1;
   }
-  
-  .prenotazioni-container::-webkit-scrollbar { display: none; }
-  .prenotazioni-container { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
 @media (max-width: 768px) {
@@ -303,6 +306,4 @@ textarea:focus-visible, select:focus-visible {
   .hero-title { font-size: 1.8rem; }
   .main-nav ul { gap: 1rem; }
   .cta-button { width: 100%; }
-  .scroll-arrow.prev { left: 5px; }
-  .scroll-arrow.next { right: 5px; }
 }
