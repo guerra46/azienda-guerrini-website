@@ -4,24 +4,22 @@
   <!-- ==============================================================
        1️⃣ Metadata & SEO
   ============================================================== -->
-  <meta charset="UTF‑8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Azienda Agricola Guerrini - Salumi Tipici Bresciani</title>
-
-  <meta name="description" content="Azienda Agricola Guerrini: produzione e vendita diretta di salumi nostrani bresciani a km 0. Scopri la tradizione e la genuinità dei nostri prodotti artigianali.">
+  <meta name="description" content="Azienda Agricola Guerrini: produzione e vendita diretta di salumi nostrani bresciani a km 0. Scopri la tradizione e la genuinità dei nostri prodotti artigianali.">
   <meta name="keywords" content="azienda agricola brescia, salumi tipici bresciani, vendita diretta salumi, salame nostrano, coppa, pancetta, cotechino, mezzene di maiale">
 
-  <!-- Canonical & Social preview -->
+  <!-- Canonical & Social Preview -->
   <link rel="canonical" href="https://www.aziendaagricolaguerrini.it/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Azienda Agricola Guerrini – Salumi tipici bresciani">
-  <meta property="og:description" content="Produzione e vendita diretta di salumi nostrani bresciani a km 0. Scopri la tradizione e la genuinità dei nostri prodotti artigianali.">
+  <meta property="og:description" content="Produzione e vendita diretta di salumi nostrani bresciani a km 0. Scopri la tradizione e la genuinità dei nostri prodotti artigianali.">
   <meta property="og:url" content="https://www.aziendaagricolaguerrini.it/">
   <meta property="og:image" content="https://www.aziendaagricolaguerrini.it/images/og-cover.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Structured data (schema.org) -->
+  <!-- Structured Data (schema.org) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,48 +27,51 @@
     "name": "Azienda Agricola Guerrini",
     "image": "https://www.aziendaagricolaguerrini.it/images/og-cover.jpg",
     "url": "https://www.aziendaagricolaguerrini.it/",
-    "telephone": "+39 333 8247310",
+    "telephone": "+393338247310",
     "email": "az.agr.guerrini@hotmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Via Poncarale 4",
       "addressLocality": "Bagnolo Mella",
-      "addressRegion": "Brescia",
+      "addressRegion": "BS",
       "postalCode": "25044",
       "addressCountry": "IT"
     },
     "priceRange": "$$",
     "foundingDate": "1995",
-    "description": "Produzione e vendita di salumi tradizionali bresciani a km 0, dal produttore al consumatore."
+    "description": "Produzione e vendita di salumi tradizionali bresciani a km 0, dal produttore al consumatore."
   }
   </script>
 
   <!-- ==============================================================
-       2️⃣ Optimized Font & Icon Loading
+       2. Optimized Asset Loading
   ============================================================== -->
+  <!-- MODIFICA 1: Precarica l'immagine più importante per la velocità (LCP) -->
+  <link rel="preload" as="image" href="images/campi2.webp">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Preload fonts & icons -->
+  <!-- Carica i font e le icone in modo non bloccante -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap"
-        media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+  
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </noscript>
 
-  <!-- -------------------------------------------------------------
-       3️⃣ Main CSS
-  -------------------------------------------------------------- -->
+  <!-- ==============================================================
+       3. Main CSS
+  ============================================================== -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- -------------------------------------------------------------
-       4️⃣ Favicon & Manifest
-  -------------------------------------------------------------- -->
+  <!-- ==============================================================
+       4. Favicon & Manifest
+  ============================================================== -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -79,43 +80,26 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <!-- -------------------------------------------------------------
-       5️⃣ Analytics (gtag.js)
-  -------------------------------------------------------------- -->
+  <!-- ==============================================================
+       5. Analytics (gtag.js)
+  ============================================================== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8LV9YVCWNT"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-8LV9YVCWNT');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-8LV9YVCWNT');
   </script>
 
-  <!-- -------------------------------------------------------------
-       6️⃣ Accessibility helper
-  -------------------------------------------------------------- -->
-  <style>
-    /* Visually hidden but focusable (skip link) */
-    .visually-hidden { 
-      position: absolute !important; 
-      height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); 
-      white-space: nowrap; 
-    }
-    .focusable:focus { 
-      position: static; 
-      width: auto; height: auto; 
-      clip: auto; 
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Skip‑link for keyboard users -->
-  <a href="#main" class="visually-hidden focusable">Vai al contenuto principale</a>
+  <a href="#main" class="visually-hidden">Vai al contenuto principale</a>
 
-  <!-- ==================== HEADER ==================== -->
+  <!-- ======================= HEADER ======================= -->
   <header class="header" role="banner">
     <div class="container">
-      <a href="#" class="logo">Azienda Agricola Guerrini</a>
+      <a href="/" class="logo">Azienda Agricola Guerrini</a>
       <nav class="main-nav" aria-label="Navigazione principale">
         <ul>
           <li><a href="#chi-siamo">Chi Siamo</a></li>
@@ -128,8 +112,8 @@
   </header>
 
   <main id="main">
-    <!-- ==================== HERO ==================== -->
-    <section class="hero" role="region" aria-label="Hero">
+    <!-- ======================= HERO ======================= -->
+    <section class="hero" role="region" aria-label="Presentazione principale">
       <div class="hero-content">
         <h1 class="hero-title">Azienda Agricola Guerrini: la tradizione dei salumi bresciani, dal produttore al consumatore.</h1>
         <p class="hero-subtitle">Genuinità, passione e rispetto per il territorio, per portare sulla vostra tavola i sapori di una volta.</p>
@@ -140,12 +124,12 @@
       </div>
     </section>
 
-    <!-- ==================== CHI SIAMO ==================== -->
-    <section id="chi-siamo" class="content-section" role="region" aria-labelledby="section-chi-siamo">
+    <!-- ======================= CHI SIAMO ======================= -->
+    <section id="chi-siamo" class="content-section" role="region" aria-labelledby="section-title-chi-siamo">
       <div class="container section-container">
         <div class="text-content">
-          <h2 id="section-chi-siamo">La Nostra Storia: Salumi Bresciani di Famiglia</h2>
-          <p>Siamo una piccola azienda agricola a conduzione familiare, situata nel cuore della campagna bresciana. Da generazioni, alleviamo i nostri maiali con passione e nel rispetto della tradizione, per offrire salumi nostrani di altissima qualità. La nostra filosofia si basa sulla genuinità, sul benessere animale e sull’amore per il nostro territorio.</p>
+          <h2 id="section-title-chi-siamo">La Nostra Storia: Salumi Bresciani di Famiglia</h2>
+          <p>Siamo una piccola azienda agricola a conduzione familiare, situata nel cuore della campagna bresciana. Da generazioni, alleviamo i nostri maiali con passione e nel rispetto della tradizione, per offrire salumi nostrani di altissima qualità. La nostra filosofia si basa sulla genuinità, sul benessere animale e sull'amore per il nostro territorio.</p>
           <h3>I nostri punti di forza:</h3>
           <ul>
             <li>Produzione artigianale e a chilometro zero.</li>
@@ -155,57 +139,57 @@
           </ul>
         </div>
         <div class="image-content">
-          <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
           <picture>
             <source srcset="images/cascina1.webp" type="image/webp">
+            <!-- MODIFICA 2: Aggiunti width e height -->
             <img src="images/cascina1.jpg" alt="La cascina dell'Azienda Agricola Guerrini a Bagnolo Mella, Brescia" width="500" height="350" loading="lazy">
           </picture>
         </div>
       </div>
     </section>
 
-    <!-- ==================== I NOSTRI PRODOTTI ==================== -->
-    <section id="prodotti" class="content-section bg-light" role="region" aria-labelledby="section-prodotti">
+    <!-- ======================= I NOSTRI PRODOTTI ======================= -->
+    <section id="prodotti" class="content-section bg-light" role="region" aria-labelledby="section-title-prodotti">
       <div class="container">
-        <h2 id="section-prodotti" class="section-title">I Nostri Salumi Artigianali Bresciani</h2>
+        <h2 id="section-title-prodotti" class="section-title">I Nostri Salumi Artigianali Bresciani</h2>
         <p class="section-subtitle">Qualità artigianale che si sente al primo morso.</p>
         <div class="product-grid">
           <div class="product-card">
-            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
             <picture>
               <source srcset="images/salame.webp" type="image/webp">
+              <!-- MODIFICA 2: Aggiunti width e height -->
               <img src="images/salame.jpg" alt="Salame nostrano bresciano a grana grossa, prodotto artigianalmente" width="600" height="600" loading="lazy">
             </picture>
             <div class="product-info"><h3>Salame Nostrano</h3><p>A grana grossa, fresco o stagionato lentamente (su richiesta) per un sapore inconfondibile e un profumo intenso.</p></div>
           </div>
           <div class="product-card">
-            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
             <picture>
               <source srcset="images/salamine.webp" type="image/webp">
+              <!-- MODIFICA 2: Aggiunti width e height -->
               <img src="images/salamine.jpg" alt="Salamine fresche bresciane, ideali da cuocere alla griglia" width="600" height="600" loading="lazy">
             </picture>
             <div class="product-info"><h3>Salamine</h3><p>Perfette da cuocere, ideali per grigliate in compagnia o per piatti invernali robusti.</p></div>
           </div>
           <div class="product-card">
-            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
             <picture>
               <source srcset="images/coppa.webp" type="image/webp">
+              <!-- MODIFICA 2: Aggiunti width e height -->
               <img src="images/coppa.jpg" alt="Coppa stagionata artigianale dell'Azienda Agricola Guerrini" width="600" height="600" loading="lazy">
             </picture>
             <div class="product-info"><h3>Coppa</h3><p>Morbida e delicata, con una venatura di grasso che la rende irresistibilmente gustosa.</p></div>
           </div>
           <div class="product-card">
-            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
             <picture>
               <source srcset="images/pancetta.webp" type="image/webp">
+              <!-- MODIFICA 2: Aggiunti width e height -->
               <img src="images/pancetta.jpg" alt="Pancetta arrotolata e speziata secondo la tradizione bresciana" width="600" height="600" loading="lazy">
             </picture>
             <div class="product-info"><h3>Pancetta</h3><p>Arrotolata e speziata secondo la tradizione, ottima per insaporire ogni piatto o gustata da sola.</p></div>
           </div>
           <div class="product-card">
-            <!-- MODIFICA: Utilizzo del tag <picture> per WebP con fallback JPG -->
             <picture>
               <source srcset="images/cotechino.webp" type="image/webp">
+              <!-- MODIFICA 2: Aggiunti width e height -->
               <img src="images/cotechino.jpg" alt="Cotechino artigianale bresciano, produzione stagionale" width="600" height="600" loading="lazy">
             </picture>
             <div class="product-info"><h3>Cotechino (Stagionale)</h3><p>Il re della tavola invernale. Produzione limitata per garantire la massima freschezza.</p></div>
@@ -214,17 +198,16 @@
       </div>
     </section>
 
-    <!-- ==================== PRENOTAZIONI ==================== -->
-    <section id="prenotazioni" class="content-section" role="region" aria-labelledby="section-prenotazioni">
+    <!-- ======================= PRENOTAZIONI ======================= -->
+    <section id="prenotazioni" class="content-section" role="region" aria-labelledby="section-title-prenotazioni">
       <div class="container">
-        <h2 id="section-prenotazioni" class="section-title">Prenota i Nostri Salumi a Km 0</h2>
+        <h2 id="section-title-prenotazioni" class="section-title">Prenota i Nostri Salumi a Km 0</h2>
         <p class="section-subtitle">Scegli cosa prenotare: le nostre mezzene di maiale o i salumi artigianali.</p>
         <div class="prenotazioni-wrapper">
           <div class="prenotazioni-container">
-            <!-- MEZZENE DI MAIALE -->
             <div id="sezione-mezzene-stagionale" class="prenotazione-box">
               <h3>Prenota le Mezzene di Maiale</h3>
-              <p>Qualità superiore per le tue preparazioni casalinghe, disponibili tutto l’anno.</p>
+              <p>Qualità superiore per le tue preparazioni casalinghe, disponibili tutto l'anno.</p>
               <form id="form-mezzene" class="form-layout" action="https://formsubmit.co/az.agr.guerrini@hotmail.com" method="POST">
                 <div class="form-group"><label for="mezzene-nome">Nome e Cognome</label><input type="text" id="mezzene-nome" name="nome" required></div>
                 <div class="form-group"><label for="mezzene-email">Email</label><input type="email" id="mezzene-email" name="email" required></div>
@@ -237,7 +220,6 @@
                 Grazie! La tua prenotazione è stata inviata. Ti ricontatteremo al più presto per tutti i dettagli.
               </div>
             </div>
-            <!-- SALUMI -->
             <div class="prenotazione-salumi prenotazione-box">
               <h3>Richiedi i Nostri Salumi</h3>
               <p>Compila il modulo per richiedere la disponibilità dei nostri salumi artigianali.</p>
@@ -266,16 +248,16 @@
       </div>
     </section>
 
-    <!-- ==================== CONTATTI ==================== -->
-    <section id="contatti" class="content-section bg-light" role="region" aria-labelledby="section-contatti">
+    <!-- ======================= CONTATTI ======================= -->
+    <section id="contatti" class="content-section bg-light" role="region" aria-labelledby="section-title-contatti">
       <div class="container section-container">
         <div class="text-content">
-          <h2 id="section-contatti" class="section-title">Contattaci a Bagnolo Mella (BS)</h2>
+          <h2 id="section-title-contatti" class="section-title">Contattaci a Bagnolo Mella (BS)</h2>
           <p>Per informazioni, domande o semplicemente per salutarci. Siamo qui per te.</p>
           <div class="contact-info">
             <p><strong>Indirizzo:</strong> Via Poncarale 4, Bagnolo Mella, Brescia, Italia</p>
             <p><strong>Email:</strong> <a href="mailto:az.agr.guerrini@hotmail.com">az.agr.guerrini@hotmail.com</a></p>
-            <p><strong>Telefono:</strong> <a href="tel:3338247310">333 824 7310</a></p>
+            <p><strong>Telefono:</strong> <a href="tel:3338247310">333 824 7310</a></p>
           </div>
           <div class="map-container">
             <iframe title="Mappa della posizione dell'Azienda Agricola Guerrini"
@@ -301,7 +283,7 @@
     </section>
   </main>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- ======================= FOOTER ======================= -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
@@ -331,7 +313,7 @@
     </div>
   </footer>
 
-  <!-- ==================== COOKIE BANNER ==================== -->
+  <!-- ======================= COOKIE BANNER ======================= -->
   <div id="cookie-banner" role="region" aria-label="Informativa cookie">
     <p>
       Utilizziamo cookie di terze parti per il funzionamento della mappa e per raccogliere statistiche. Cliccando "Accetto", acconsenti al loro utilizzo. Per saperne di più, leggi la nostra 
@@ -340,8 +322,7 @@
     <button id="cookie-accept-btn">Accetto</button>
   </div>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
-  <!-- Defer is better than async for scripts that depend on DOMContentLoaded -->
+  <!-- ======================= JAVASCRIPT ======================= -->
   <script src="script.js" defer></script>
   <script src="cookie-banner.js" defer></script>
 </body>
